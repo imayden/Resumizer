@@ -1,20 +1,28 @@
 import React from "react";
 import { FadeIn } from "./FadeIn";
+import { Link, useLocation } from "react-router-dom";
 
 // Define the data for navigation links
 const navlinkes = [
   {
     name: "home.",
-    link: "#home",
+    link: "/home",
   },
   {
     name: "about.",
-    link: "#about",
+    link: "/about",
+  },
+  {
+    name: "result.",
+    link: "/result",
   },
 ];
 
 // Define the Navbar component
 function Navbar() {
+
+  const location = useLocation(); // To locate and highlight the currant page anchor
+
   return (
     <div>
       <FadeIn>
@@ -26,16 +34,16 @@ function Navbar() {
           </span>
           <div className="flex justify-end items-center gap-x-8 gap-y-8 max-md:gap-3 max-sm:hidden">
             {navlinkes.map((navlink) => (
-
-              // Dynamically generate each navigation link
-              <a
-                href={navlink.link}
-                className={`md:w-[120px] transition-all duration-300 ease-[ease-out] text-[#8a8a93] text-lg leading-6 text-center tracking-[-0.01em] px-6 max-md:px-2 py-0 hover:text-white ${
-                  navlink.link === "#home" ? "text-white" : ""
-                }`}
-              >
-                {navlink.name}
-              </a>
+              // Dynamically generate each navigation link 
+              <Link
+                    to={navlink.link}
+                    key={navlink.link}
+                    className={`md:w-[120px] transition-all duration-300 ease-[ease-out] text-[#8a8a93] text-lg leading-6 text-center tracking-[-0.01em] px-6 max-md:px-2 py-0 hover:text-white ${
+                      location.pathname === navlink.link ? "text-white" : ""
+                    }`}
+                  >
+                    {navlink.name}
+              </Link>
             ))}
           </div>
         </div>
@@ -44,16 +52,16 @@ function Navbar() {
         <div className="flex w-full justify-center items-center sm:hidden">
           <div className="flex justify-around items-center gap-x-8 gap-y-8 max-w-[1240px]  bg-[#131315] px-8 py-4 rounded-full fixed bottom-5 mx-auto">
             {navlinkes.map((navlink) => (
-
-              // Dynamically generate each navigation link
-              <a
-                href={navlink.link}
-                className={`md:w-[120px] transition-all duration-300 ease-[ease-out] text-[#8a8a93] text-lg leading-6 text-center tracking-[-0.01em] px-6 max-md:px-2 py-0 hover:text-white ${
-                  navlink.link === "#home" ? "text-white" : ""
-                }`}
-              >
-                {navlink.name}
-              </a>
+              // Dynamically generate each navigation link 
+                <Link
+                      to={navlink.link}
+                      key={navlink.link}
+                      className={`md:w-[120px] transition-all duration-300 ease-[ease-out] text-[#8a8a93] text-lg leading-6 text-center tracking-[-0.01em] px-6 max-md:px-2 py-0 hover:text-white ${
+                        location.pathname === navlink.link ? "text-white" : ""
+                      }`}
+                      >
+                      {navlink.name}
+                </Link>
             ))}
           </div>
         </div>

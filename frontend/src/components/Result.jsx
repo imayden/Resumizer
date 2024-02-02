@@ -22,13 +22,13 @@ function Reuslt() {
               className="overflow-hidden w-[108px] h-[108px] flex-[0_0_auto] rounded-full"
             />
             <h1 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
-              Resumizer
+              Result
               <br />
-              Build Your Resume
+              Page
               {" "}<br />
               <span className="text-[#8a8a93]">
                 {" "}
-                In Minutes.
+                Is Here.
               </span>
             </h1>
           </div>
@@ -38,10 +38,10 @@ function Reuslt() {
             <div className="flex flex-col justify-center items-center mb-8 gap-3 max-md:mb-4">
               <h2 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
                 <span className="text-[#8a8a93]">
-                  Ready To Feel {" "}
+                  Here Is {" "}
                 </span>
                 <br />
-                The Magic?
+                Result Page
               </h2>
             </div>
 
@@ -90,4 +90,4 @@ function Reuslt() {
   );
 }
 
-export default Result;
+export default Reuslt;
