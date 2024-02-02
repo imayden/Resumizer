@@ -1,6 +1,6 @@
 # Resumiser - Efficient AI Resume Builder
 
-## Team
+## Team Members
 - [Ayden - imayden](https://github.com/imayden)
 - [Danny - dcapua](https://github.com/dcapua)
 - [Earth - earthcha](https://github.com/earthcha)
