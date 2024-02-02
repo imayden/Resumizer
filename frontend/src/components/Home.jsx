@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "./Container";
 import logo from "../assets/logo.png";
 import { ContactIcon } from "./Icons";
 import { FadeIn } from "./FadeIn";
 import Socials from "./Socials";
+import UploadPopup from "./UploadPopup";
 
 function Home() {
+
+  // The upload pop-up display status - Default is not open
+  const [showUploadPopup, setShowUploadPopup] = useState(false);
+
+  // Toggle the upload pop-up
+  const toggleUploadPopup = () => {
+    setShowUploadPopup(!showUploadPopup);
+  };
+
   return (
     <Container id="home">
 
@@ -46,13 +56,14 @@ function Home() {
             </div>
 
             {/* Upload File Button */}
-            <a
-              href="#"
+            <button
+              // href="#"
+              onClick={toggleUploadPopup} // Toggle event for the Upload File Button
               className="min-h-[96px] bg-[#bfd3eb] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-black"
             >
               Upload Now
               <span className=" animate-pulse"></span>
-            </a>
+            </button>
 
             {/* Manual Input Button */}
             <a
@@ -85,6 +96,9 @@ function Home() {
           </h3>
         </div>
       </FadeIn>
+
+      {/* Upload File Pop-up */}
+      <UploadPopup isOpen={showUploadPopup} onClose={toggleUploadPopup} />
       
     </Container>
   );
