@@ -2,7 +2,9 @@ from flask import Flask, request
 from jobspy import scrape_jobs
 import pandas as pd
 app = Flask(__name__)
-
+@app.route("/hello")
+def hello():
+  return "hello", 200
 
 @app.route("/job", methods=['POST'])
 def job():
