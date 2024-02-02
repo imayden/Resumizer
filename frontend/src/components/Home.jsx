@@ -8,8 +8,13 @@ import Socials from "./Socials";
 function Home() {
   return (
     <Container id="home">
+
+      {/* Title Line */}
       <FadeIn>
+        
         <div className="grid gap-x-2 gap-y-2 grid-cols-[1fr_0.7fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
+
+          {/* Title Tile */}
           <div className="flex w-full max-w-[746px] flex-col items-start gap-x-8 gap-y-8 bg-[#131315] px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8">
             <img
               src={logo}
@@ -28,6 +33,7 @@ function Home() {
             </h1>
           </div>
 
+          {/* Action Tile */}
           <div className="flex flex-col justify-between items-stretch gap-x-8 gap-y-8 bg-[#131315] text-center p-12 rounded-3xl max-md:p-8">
             <div className="flex flex-col justify-center items-center mb-8 gap-3 max-md:mb-4">
               <h2 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
@@ -39,6 +45,7 @@ function Home() {
               </h2>
             </div>
 
+            {/* Upload File Button */}
             <a
               href="#"
               className="min-h-[96px] bg-[#bfd3eb] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-black"
@@ -46,6 +53,8 @@ function Home() {
               Upload Now
               <span className=" animate-pulse"></span>
             </a>
+
+            {/* Manual Input Button */}
             <a
               href="#"
               className="min-h-[96px] bg-[#bfd3eb] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-black"
@@ -58,9 +67,13 @@ function Home() {
 
         </div>
       </FadeIn>
+
+      {/* Social Line */}
       <FadeIn>
         <Socials />
       </FadeIn>
+
+      {/* Job Board Line */}
       <FadeIn>
         <div className="flex w-full flex-col items-start gap-x-8 gap-y-8 bg-[#131315] px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8">
           <h3 className="max-md:text-[32px] max-md:leading-10 max-md:tracking-[-0.01em]">
@@ -72,6 +85,7 @@ function Home() {
           </h3>
         </div>
       </FadeIn>
+      
     </Container>
   );
 }
