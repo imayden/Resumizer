@@ -7,12 +7,8 @@ const navlinkes = [
     link: "#home",
   },
   {
-    name: "work.",
-    link: "#work",
-  },
-  {
-    name: "contact.",
-    link: "#contact",
+    name: "about.",
+    link: "#about",
   },
 ];
 function Navbar() {
