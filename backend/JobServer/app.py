@@ -25,3 +25,6 @@ def job():
     "location": jobs["location"].tolist(),
     "date_posted": jobs["date_posted"].tolist(),
   }, 200
+
+if __name__ == "__name__":
+  app.run()
