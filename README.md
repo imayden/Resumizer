@@ -18,9 +18,10 @@ _**Tech stack**_
 _**Setup**_
 
 1. Clone the repository
-2. Install the dependencies by running `npm install` (NodeJS is a prerequisite)
-3. Start the development server by running `npm run dev`
-4. Open `http://localhost:5173` in your browser
+2. Type `cd frontend` in terminal
+3. Install the dependencies by running `npm install` (NodeJS is a prerequisite)
+4. Start the development server by running `npm run dev`
+5. Open `http://localhost:5173` in your browser
 
 ## Back-end
 ### Job Server
