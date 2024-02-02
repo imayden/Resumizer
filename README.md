@@ -2,7 +2,7 @@
 
 ## Team
 - [Ayden - imayden](https://github.com/imayden)
-- [Danny - dcapua](ttps://github.com/dcapua)
+- [Danny - dcapua](https://github.com/dcapua)
 - [Earth - earthcha](https://github.com/earthcha)
 - [Henry - phhoang98a](https://github.com/phhoang98a)
 
