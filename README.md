@@ -1,10 +1,13 @@
 # Resumiser - Efficient AI Resume Builder
 
-
+## Team
+- [imayden][https://github.com/imayden]
+- [dcapua][https://github.com/dcapua]
+- [earthcha][https://github.com/earthcha]
+- [phhoang98a][https://github.com/phhoang98a]
 
 ## Features
-
-* Build your resume
+* Build your resume with AI
 
 ## Front-End
 _**Tech stack**_
