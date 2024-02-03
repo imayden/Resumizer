@@ -27,7 +27,7 @@ _**Setup**_
 ### Job Server
 _**Setup**_
 
-1. cd ./backend/JobServer
+1. cd `/backend/JobServer`
 2. Install the dependencies by running `pip install -r requirements.txt`
 3. Start the development server by running `flask run`
 
@@ -43,6 +43,25 @@ Body(JSON):
 Result: List of job information about company, title, date_posted, job_url, location, site
 ```
 <img width="712" alt="Screenshot 2024-02-02 at 4 55 53 AM" src="https://github.com/imayden/Resumizer/assets/34488386/9f102deb-af29-42b9-8250-0266c22be785">
+
+### Resume Server
+_**Setup**_
+
+1. cd `/backend/ResumeServer`
+2. Generate an `OPENAI_API_KEY` at OpenAI and add it to the `.env` file.
+3. Install the dependencies by running `npm install`
+4. Start the development server by running `npm start`
+
+_**Apis**_
+```yml
+POST - http://localhost:3000
+
+Body(form-data): 
+- resume (File): PDF file
+
+Result: List of resume information about personal_info, education, work_experience, personal_projects, skilss
+```
+![Screenshot 2024-02-03 at 2 58 16 AM](https://github.com/imayden/Resumizer/assets/34488386/5d820c09-113a-46e1-a855-ae6e76facc51)
 
 ## Database
 * TBD
