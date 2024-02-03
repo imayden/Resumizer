@@ -1,0 +1,22 @@
+# Ignore files and directories that are automatically generated
+node_modules/
+dist/
+*.log
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore temporary and backup files
+*.tmp
+*.bak
+
+# Ignore sensitive or private information (sensitive.txt is just an example)
+sensitive.txt
+
+# Ignore environment-specific configuration files
+.env
+.env.local
+
+# Ignore IDE or editor-specific files and directories
+.idea/
+.vscode/
