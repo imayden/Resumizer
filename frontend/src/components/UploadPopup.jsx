@@ -1,5 +1,6 @@
 import React from "react";
 import Socials from "./Socials";
+import './styles.css';
 
 const UploadPopup = ({ isOpen, onClose }) => {
   if (!isOpen) return null; // If pop-up is not open then return null
