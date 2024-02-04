@@ -2,15 +2,31 @@ import React from "react";
 import Socials from "./Socials";
 import { FadeIn } from "./FadeIn";
 import { AnimatePresence, motion } from "framer-motion";
+// import { useNavigate } from 'react-router-dom';
+
 
 const UploadPopup = ({ isOpen, onClose }) => {
+
+    // useNavigate Hook for redirecting routes
+    // const navigate = useNavigate();
+
+    // For the confirm button refirecting
+    // const handleConfirmClick = () => {
+    //     navigate('/result');
+    // };
+    const handleConfirmClick = () => {
+        window.open('/result', '_blank');
+    };
+
     if (!isOpen) return null;
 
+    // Element background blur effect
     const backdropVariants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1 },
     };
 
+    // Pop up animation
     const modalVariants = {
         hidden: {
             scale: 0.5,
@@ -49,7 +65,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
                                 ⛌
                             </button>
 
-                            <div className="flex w-full flex-col items-start gap-x-8 gap-y-8 bg-[#5A5A5B] bg-opacity-75 backdrop-blur-lg px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8">
+                            <div className="flex w-full flex-col items-start gap-x-8 gap-y-8 bg-[#5A5A5B] bg-opacity-75 backdrop-blur-lg  px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8">
                                 <h3 className="max-md:text-[32px] max-md:leading-10 max-md:tracking-[-0.01em]">
                                     Upload Your Resume{" "}
                                     <span className="text-[#8a8a93]">
@@ -60,7 +76,6 @@ const UploadPopup = ({ isOpen, onClose }) => {
                                 </h3>
 
                                 <button
-                                    // href="#"
                                     className=" w-full h-[72px] bg-white bg-opacity-0 border-[#8a8a93] border-[2px] text-[#8a8a93] transition-[background-color] duration-300 ease-[ease-out] text-[24px] leading-[48px] font-regular text-center items-center jsutify-center tracking-[-0.01em] rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 hover:text-white hover:border-white"
                                 >
                                     Choose File
@@ -69,9 +84,19 @@ const UploadPopup = ({ isOpen, onClose }) => {
 
                             <br />
 
+                            <div className="flex w-full flex-col items-stretch gap-x-8 gap-y-8 bg-[#5A5A5B] bg-opacity-75 backdrop-blur-lg px-0 py-0 rounded-3xl  max-mdd:max-w-none max-md:p-8">
+                                <input
+                                    type="text"
+                                    placeholder="Enter target jobs here (Optional)"
+                                    className="w-full px-4 py-2 text-[20px] bg-white bg-opacity-20 hover:bg-opacity-80 rounded-[99px] hover:border-opacity-50 text-[white] hover:text-black text-opacity-50 hover:text-opacity-100"
+                                />
+                            </div>
+
+                            <br />
+
                             <button
-                                // href="#"
-                                className=" w-full min-h-[96px] bg-[#bfd3eb] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-black"
+                                onClick={handleConfirmClick}
+                                className=" w-full min-h-[96px] bg-[#bfd3eb] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-6 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-black"
                             >
                                 Confirm
                                 <span className=" animate-pulse"></span>
