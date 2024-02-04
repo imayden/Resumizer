@@ -29,9 +29,12 @@ function Navbar() {
 
         {/* Navbar main body, using flex layout, including Resumizer title and navigation links */}
         <div className="flex max-w-[1240px] justify-between max-sm:justify-center items-center bg-[#131315] mx-auto px-8 py-4 max-lg:mx-2 rounded-[999px] mt-6">
-          <span className="text-lg leading-6 -translate-x-[0.01em] ">
+          {/* <span className="text-lg leading-6 -translate-x-[0.01em] ">
             Resumizer.
-          </span>
+          </span> */}
+          <Link to="/home" className="text-lg leading-6 -translate-x-[0.01em] hover:text-white">
+            Resumizer.
+          </Link>
           <div className="flex justify-end items-center gap-x-8 gap-y-8 max-md:gap-3 max-sm:hidden">
             {navlinkes.map((navlink) => (
               // Dynamically generate each navigation link 
