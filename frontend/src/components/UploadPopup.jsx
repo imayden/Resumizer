@@ -41,7 +41,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
                         variants={modalVariants}
                         initial="hidden"
                         animate="visible"
-                        exit="hidden" // 在这里，您可能想要定义一个不同的变体来处理退出动画，如缩小
+                        exit="hidden"
                     >
 
                         <FadeIn>
@@ -56,8 +56,26 @@ const UploadPopup = ({ isOpen, onClose }) => {
                                         {" "}
                                         Here
                                     </span>
+                                    <br />
                                 </h3>
+
+                                <button
+                                    // href="#"
+                                    className=" w-full h-[72px] bg-white bg-opacity-0 border-[#8a8a93] border-[2px] text-[#8a8a93] transition-[background-color] duration-300 ease-[ease-out] text-[24px] leading-[48px] font-regular text-center items-center jsutify-center tracking-[-0.01em] rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 hover:text-white hover:border-white"
+                                >
+                                    Choose File
+                                </button>
                             </div>
+
+                            <br />
+
+                            <button
+                                // href="#"
+                                className=" w-full min-h-[96px] bg-[#bfd3eb] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-black"
+                            >
+                                Confirm
+                                <span className=" animate-pulse"></span>
+                            </button>
                         </FadeIn>
 
                         {/* More components here */}
