@@ -21,7 +21,7 @@ function Home() {
 
       {/* Title Line */}
       <FadeIn>
-        
+
         <div className="grid gap-x-2 gap-y-2 grid-cols-[1fr_0.7fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
 
           {/* Title Tile */}
@@ -99,7 +99,7 @@ function Home() {
 
       {/* Upload File Pop-up */}
       <UploadPopup isOpen={showUploadPopup} onClose={toggleUploadPopup} />
-      
+
     </Container>
   );
 }
