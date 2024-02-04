@@ -16,7 +16,7 @@ export default {
         },
       },
       animation: {
-        scaleUp: 'scaleUp 0.1s ease-in-out forwards',
+        fadeIn: 'fadeIn 0.5s ease-out forwards',
       },
       backdropFilter: {
         'none': 'none',
