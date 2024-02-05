@@ -5,6 +5,7 @@ import { ContactIcon } from "./Icons";
 import { FadeIn } from "./FadeIn";
 import Socials from "./Socials";
 
+
 function Reuslt() {
   return (
     <Container id="result">

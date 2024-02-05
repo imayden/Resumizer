@@ -8,10 +8,10 @@ const navlinkes = [
     name: "home.",
     link: "/home",
   },
-  // {
-  //   name: "about.",
-  //   link: "/about",
-  // },
+  {
+    name: "about.",
+    link: "/about",
+  },
   {
     name: "result.",
     link: "/result",
