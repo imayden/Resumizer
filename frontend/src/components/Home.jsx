@@ -88,12 +88,27 @@ function Home() {
       <FadeIn>
         <div className="flex w-full flex-col items-start gap-x-8 gap-y-8 bg-[#131315] px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8">
           <h3 className="max-md:text-[32px] max-md:leading-10 max-md:tracking-[-0.01em]">
-            Seeking for a job?.{" "}
+            Seeking for a job?{" "}
             <span className="text-[#8a8a93]">
               {" "}
               Let's search here!
             </span>
           </h3>
+          <h5 className="max-md:text-[32px] max-md:leading-10 max-md:tracking-[-0.01em]">
+            
+            <span className="text-[#8a8a93]">
+              {" "}
+              Here's gonna be a
+            </span>
+            {" "}
+            
+            `job search component` 
+
+            <span className="text-[#8a8a93]">
+              {" "}
+              awaiting to build ......
+            </span>
+          </h5>
         </div>
       </FadeIn>
 
