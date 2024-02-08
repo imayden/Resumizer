@@ -11,6 +11,7 @@ function App() {
     <Router>
       <div>
         <Navbar />
+
         <Routes>
           {/* Use Navigate to redirect to /home as default */}
           <Route path="/" element={<Navigate replace to="/home" />} />
@@ -18,6 +19,7 @@ function App() {
           <Route path="/result" element={<Result />} />
           {/* More page routes below */}
         </Routes>
+
         <Footer />
       </div>
     </Router>
