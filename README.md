@@ -14,7 +14,7 @@ _**Tech stack**_
 
 * React
 * Tailwind CSS
-
+ 
 _**Setup**_
 
 1. Clone the repository
