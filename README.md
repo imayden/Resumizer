@@ -10,10 +10,12 @@
 * Build your resume with AI
 
 ## Latest Demo Mockups
-### Update 02/09/2024
-#### Light Mode Design (Visual Desgin Live Demo Edition 1)
+### Sprint 2
+- Design: https://www.figma.com/file/m1DXq5G9wP9tpF1SeZoF5d/Resumizer?type=design&node-id=204%3A111&mode=design&t=ofxu7vmKRs0PRRI2-1
+#### Update 02/09/2024
+##### Light Mode Design (Visual Desgin Live Demo Edition 1)
 ![Light Mode Mockup](public/sprint2/lightMockup.png "Light Mode Mockup")
-#### Dark Mode Design (Visual Desgin Live Demo Edition 1)
+##### Dark Mode Design (Visual Desgin Live Demo Edition 1)
 ![Dark Mode Mockup](public/sprint2/darkMockup.png "Dark Mode Mockup")
 
 
