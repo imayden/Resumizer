@@ -3,8 +3,8 @@ import React from 'react';
 const JobSpy = () => {
     return (
         <div className="flex w-full flex-col items-start gap-x-8 gap-y-8 px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8 mb-[8px]
-        bg-opacity-30 backdrop-blur-3xl border-white border-[1px] border-opacity-10 bg-white 
-          dark:bg-opacity-30 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-10 dark:bg-black " >
+        bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
+          dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black " >
             <h3 className="max-md:text-[32px] max-md:leading-10 max-md:tracking-[-0.01em] text-[#4F0ED1] dark:text-white">
                 Seeking for a job?{" "}
                 <span className="text-[#7F739F]">

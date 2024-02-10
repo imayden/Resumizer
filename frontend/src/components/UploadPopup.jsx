@@ -46,8 +46,8 @@ const UploadPopup = ({ isOpen, onClose }) => {
                 >
                     <motion.div
                         className="w-80% h-50% p-5 rounded-[32px] relative flex flex-col items-center justify-center overflow-hidden mx-auto 
-                        bg-opacity-40 backdrop-blur-3xl border-black bg-border-[2px] bg-border-opacity-50 bg-white 
-                        dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:bg-border-[2px] dark:bg-border-opacity-50 dark:bg-black "
+                        bg-opacity-40 backdrop-blur-3xl border-black border-[1px] border-opacity-5 bg-white 
+                        dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black "
                         variants={modalVariants}
                         initial="hidden"
                         animate="visible"
@@ -56,16 +56,16 @@ const UploadPopup = ({ isOpen, onClose }) => {
 
                         <FadeIn>
                             <button onClick={onClose} className="flex top-2 right-2 mb-5 text-[#7F739F] rounded-full w-8 h-8 flex items-center justify-center cursor-pointer
-                            bg-opacity-40 backdrop-blur-3xl border-black bg-border-[2px] bg-border-opacity-50 bg-white 
+                            bg-opacity-40 backdrop-blur-3xl border-black border-[1px] border-opacity-5 bg-white 
                             hover:bg-[#7F739F] hover:bg-opacity-50 hover:text-white
-                            dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:bg-border-[2px] dark:bg-border-opacity-50 dark:bg-black 
+                            dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black 
                             ">
                                 ⛌
                             </button>
 
                             <div className="flex w-full flex-col items-start gap-x-8 gap-y-8 
-                            bg-opacity-10 backdrop-blur-3xl border-white bg-border-[2px] bg-border-opacity-50 bg-white 
-                            dark:bg-opacity-10 dark:backdrop-blur-3xl dark:border-black dark:bg-border-[2px] dark:bg-border-opacity-50 dark:bg-black 
+                            bg-opacity-10 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
+                            dark:bg-opacity-10 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black 
                             px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8">
                                 <h3 className="max-md:text-[32px] max-md:leading-10 max-md:tracking-[-0.01em]">
                                     Upload Your Resume{" "}
@@ -88,12 +88,12 @@ const UploadPopup = ({ isOpen, onClose }) => {
                             <br />
 
                             <div className="flex w-full flex-col items-stretch gap-x-8 gap-y-8 px-0 py-0 rounded-3xl  max-mdd:max-w-none max-md:p-8 rounded-[99px]
-                            bg-opacity-40 backdrop-blur-3xl border-white bg-border-[2px] bg-border-opacity-50 bg-white 
-                            dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:bg-border-[2px] dark:bg-border-opacity-50 dark:bg-black " >
+                            bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
+                            dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black " >
                                 <input
                                     type="text"
                                     placeholder="Enter target jobs here (Optional)"
-                                    className="w-full h-[72px] px-4 py-2 text-[24px] bg-white bg-opacity-20 hover:bg-opacity-80 hover:border-opacity-50 text-[white] hover:text-black text-opacity-50 hover:text-opacity-100 rounded-[99px]"
+                                    className="w-full h-[72px] px-4 py-2 text-[24px] bg-white bg-opacity-20 hover:bg-opacity-80 hover:border-opacity-5 text-[white] hover:text-black text-opacity-50 hover:text-opacity-100 rounded-[99px]"
                                 />
                             </div>
 
