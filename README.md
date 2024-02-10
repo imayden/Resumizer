@@ -9,6 +9,14 @@
 ## Features
 * Build your resume with AI
 
+## Latest Demo Mockups
+### Update 02/09/2024
+#### Light Mode Design (Visual Desgin Live Demo Edition 1)
+![Light Mode Mockup](public/sprint2/lightMockup.png "Light Mode Mockup")
+#### Dark Mode Design (Visual Desgin Live Demo Edition 1)
+![Dark Mode Mockup](public/sprint2/darkMockup.png "Dark Mode Mockup")
+
+
 ## Front-End
 _**Tech stack**_
 
