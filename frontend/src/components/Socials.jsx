@@ -31,7 +31,10 @@ function Socials() {
           key={social.link}
           target="_blank" 
           rel="noopener noreferrer" // Secure the websites
-          className="flex w-full min-h-[56px] justify-center items-center bg-[#131315] transition-[background-color] duration-300 ease-[ease-out] text-white text-lg leading-6 text-center tracking-[-0.01em] px-6 py-4 rounded-[99px]"
+          className="flex w-full min-h-[56px] justify-center items-center text-4F0ED1 dark:text-white 
+          bg-opacity-25 backdrop-blur-2xl border-white bg-border-[2px] bg-border-opacity-50 bg-white hover:bg-opacity-50
+          dark:bg-opacity-25 dark:backdrop-blur-2xl dark:border-black dark:bg-border-[2px] dark:bg-border-opacity-50 dark:bg-black hover:bg-opacity-50
+          transition-[background-color] duration-300 ease-[ease-out] text-lg leading-6 text-center tracking-[-0.01em] px-6 py-4 rounded-[99px]"
         >
           {social.name}
         </a>

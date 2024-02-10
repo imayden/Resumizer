@@ -2,18 +2,10 @@ import React from "react";
 import Socials from "./Socials";
 import { FadeIn } from "./FadeIn";
 import { AnimatePresence, motion } from "framer-motion";
-// import { useNavigate } from 'react-router-dom';
 
 
 const UploadPopup = ({ isOpen, onClose }) => {
 
-    // useNavigate Hook for redirecting routes
-    // const navigate = useNavigate();
-
-    // For the confirm button refirecting
-    // const handleConfirmClick = () => {
-    //     navigate('/result');
-    // };
     const handleConfirmClick = () => {
         window.open('/result', '_blank');
     };
@@ -46,14 +38,16 @@ const UploadPopup = ({ isOpen, onClose }) => {
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+                    className="fixed inset-0 bg-white bg-opacity-5 dark:bg-black dark:bg-opacity-10 backdrop-blur-xl  flex justify-center items-center"
                     variants={backdropVariants}
                     initial="hidden"
                     animate="visible"
                     exit="hidden"
                 >
                     <motion.div
-                        className="w-75% h-50% bg-[#2B2B2C] bg-opacity-50 backdrop-blur-lg p-5 rounded-[32px] relative flex flex-col items-center justify-center overflow-hidden mx-auto"
+                        className="w-80% h-50% p-5 rounded-[32px] relative flex flex-col items-center justify-center overflow-hidden mx-auto 
+                        bg-opacity-25 backdrop-blur-3xl border-black bg-border-[2px] bg-border-opacity-50 bg-white 
+                        dark:bg-opacity-25 dark:backdrop-blur-3xl dark:border-black dark:bg-border-[2px] dark:bg-border-opacity-50 dark:bg-black "
                         variants={modalVariants}
                         initial="hidden"
                         animate="visible"
@@ -61,14 +55,21 @@ const UploadPopup = ({ isOpen, onClose }) => {
                     >
 
                         <FadeIn>
-                            <button onClick={onClose} className="flex top-2 right-2 mb-5 bg-[#5A5A5B] text-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer">
+                            <button onClick={onClose} className="flex top-2 right-2 mb-5 text-[#7F739F] rounded-full w-8 h-8 flex items-center justify-center cursor-pointer
+                            bg-opacity-25 backdrop-blur-3xl border-black bg-border-[2px] bg-border-opacity-50 bg-white 
+                            hover:bg-[#7F739F] hover:bg-opacity-50 hover:text-white
+                            dark:bg-opacity-25 dark:backdrop-blur-3xl dark:border-black dark:bg-border-[2px] dark:bg-border-opacity-50 dark:bg-black 
+                            ">
                                 ⛌
                             </button>
 
-                            <div className="flex w-full flex-col items-start gap-x-8 gap-y-8 bg-[#5A5A5B] bg-opacity-75 backdrop-blur-lg  px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8">
+                            <div className="flex w-full flex-col items-start gap-x-8 gap-y-8 
+                            bg-opacity-10 backdrop-blur-2xl border-white bg-border-[2px] bg-border-opacity-50 bg-white 
+                            dark:bg-opacity-10 dark:backdrop-blur-2xl dark:border-black dark:bg-border-[2px] dark:bg-border-opacity-50 dark:bg-black 
+                            px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8">
                                 <h3 className="max-md:text-[32px] max-md:leading-10 max-md:tracking-[-0.01em]">
                                     Upload Your Resume{" "}
-                                    <span className="text-[#8a8a93]">
+                                    <span className="text-[#7F739F]">
                                         {" "}
                                         Here
                                     </span>
@@ -76,19 +77,23 @@ const UploadPopup = ({ isOpen, onClose }) => {
                                 </h3>
 
                                 <button
-                                    className=" w-full h-[72px] bg-white bg-opacity-0 border-[#8a8a93] border-[2px] text-[#8a8a93] transition-[background-color] duration-300 ease-[ease-out] text-[24px] leading-[48px] font-regular text-center items-center jsutify-center tracking-[-0.01em] rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 hover:text-white hover:border-white"
+                                    className=" w-full h-[72px] text-[#4F0ED1] hover:text-white dark:text-[#7A7497] bg-[#6D49FE] bg-opacity-0 hover:bg-[#6D49FE] ring-2 ring-[#4F0ED1] dark:ring-[#7A7497] hover:ring-0  transition-[background-color] duration-300 ease-[ease-out] text-[24px] leading-[48px] font-regular text-center items-center jsutify-center tracking-[-0.01em] rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8"
+                                
                                 >
+
                                     Choose File
                                 </button>
                             </div>
 
                             <br />
 
-                            <div className="flex w-full flex-col items-stretch gap-x-8 gap-y-8 bg-[#5A5A5B] bg-opacity-75 backdrop-blur-lg px-0 py-0 rounded-3xl  max-mdd:max-w-none max-md:p-8">
+                            <div className="flex w-full flex-col items-stretch gap-x-8 gap-y-8 px-0 py-0 rounded-3xl  max-mdd:max-w-none max-md:p-8 rounded-[99px]
+                            bg-opacity-25 backdrop-blur-2xl border-white bg-border-[2px] bg-border-opacity-50 bg-white 
+                            dark:bg-opacity-25 dark:backdrop-blur-2xl dark:border-black dark:bg-border-[2px] dark:bg-border-opacity-50 dark:bg-black " >
                                 <input
                                     type="text"
                                     placeholder="Enter target jobs here (Optional)"
-                                    className="w-full px-4 py-2 text-[20px] bg-white bg-opacity-20 hover:bg-opacity-80 rounded-[99px] hover:border-opacity-50 text-[white] hover:text-black text-opacity-50 hover:text-opacity-100"
+                                    className="w-full h-[72px] px-4 py-2 text-[24px] bg-white bg-opacity-20 hover:bg-opacity-80 hover:border-opacity-50 text-[white] hover:text-black text-opacity-50 hover:text-opacity-100 rounded-[99px]"
                                 />
                             </div>
 
@@ -96,7 +101,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
 
                             <button
                                 onClick={handleConfirmClick}
-                                className=" w-full min-h-[96px] bg-[#bfd3eb] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-6 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-black"
+                                className="min-h-[96px] w-full transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
                             >
                                 Confirm
                                 <span className=" animate-pulse"></span>

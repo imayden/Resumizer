@@ -5,45 +5,87 @@
 
 body {
   font-family: "Darker Grotesque", sans-serif;
-  background-color: #000;
-  color: #fff;
   font-size: 24px;
   line-height: 20px;
+  font-weight: 500;
+
+  /* Light Mode Background Color  */
+  background-color: #F4F6FE;
+
+  /* Light Mode Background Image */
+  background-image: url('assets/LightBg.svg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+
+  /* Light Mode Text Color  */
+  color: #4F0ED1;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    /* Dark Mode Background Color  */
+    background-color: #130E3C;
+
+    /* Dark Mode Background Image */
+    background-image: url('assets/DarkBg.svg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+    /* Dark Mode Text Color  */
+    color: #ffffff;
+  }
+}
+
+/* Component Styling */
+/* Light Mode Component Styling*/
+.bg-custom-light {
+  background-color: #D9E1FF;
+}
+
+.text-custom-light {
+  color: #000;
+}
+
+/* Dark Mode */
+.dark:bg-custom-dark {
+  background-color: #000;
+}
+
+.dark:text-custom-dark {
+  color: #fff;
+}
+
+h1,
+h2,
+h3,
+h5 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  letter-spacing: -0.03em;
   font-weight: 500;
 }
 
 h1 {
-  margin-top: 0px;
-  margin-bottom: 0px;
   font-size: 64px;
   line-height: 72px;
-  font-weight: 500;
-  letter-spacing: -0.03em;
 }
 
 h2 {
-  margin-top: 0px;
-  margin-bottom: 0px;
   font-size: 56px;
   line-height: 64px;
-  font-weight: 500;
-  letter-spacing: -0.03em;
 }
 
 h3 {
-  margin-top: 0px;
-  margin-bottom: 0px;
   font-size: 48px;
   line-height: 56px;
-  font-weight: 500;
-  letter-spacing: -0.03em;
 }
 
 h5 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.01em;
 }

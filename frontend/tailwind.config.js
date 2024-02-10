@@ -3,6 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      darkMode: 'media', // Globally enable Dark Mode
       fontFamily: {
         inter: ["Inter", "sans"],
       },
