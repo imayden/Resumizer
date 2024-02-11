@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import Container from "./Container";
+import Container from "../components/Container";
 import logo from "../assets/logo.svg";
-import { ContactIcon } from "./Icons";
-import { FadeIn } from "./FadeIn";
-import Socials from "./Socials";
-import UploadPopup from "./UploadPopup";
-import JobSpy from './JobSpy';
+import { FadeIn } from "../components/FadeIn";
+import Socials from "../components/Socials";
+import UploadPopup from "../components/UploadPopup";
+import JobSpy from '../components/JobSpy';
 
 function Home() {
 

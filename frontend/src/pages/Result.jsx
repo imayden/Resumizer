@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import Container from "./Container";
+import Container from "../components/Container";
 import logo from "../assets/logo.svg";
-import { ContactIcon } from "./Icons";
-import Socials from "./Socials";
-import { FadeIn } from "./FadeIn";
-import JobSpy from './JobSpy';
+import Socials from "../components/Socials";
+import { FadeIn } from "../components/FadeIn";
+import JobSpy from '../components/JobSpy';
 
 
 function Reuslt() {
