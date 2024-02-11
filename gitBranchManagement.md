@@ -11,7 +11,7 @@ This tutorial provides a step-by-step guide on using Git with VSCode for branch 
 - `earth`
 - `henry`
 ### Other Branch
-- main
+- `main`
 
 ## Prerequisites
 
