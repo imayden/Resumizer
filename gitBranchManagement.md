@@ -1,4 +1,4 @@
-# Git and VSCode Comprehensive Tutorial
+# Git Branch Management Tutorial
 
 This tutorial provides a step-by-step guide on using Git with VSCode for branch management, making changes, and handling common issues like untracked files.
 
