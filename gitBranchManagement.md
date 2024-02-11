@@ -2,6 +2,17 @@
 
 This tutorial provides a step-by-step guide on using Git with VSCode for branch management, making changes, and handling common issues like untracked files.
 
+## Branches
+### Default Branch
+- master
+### Temporary Branches
+- ayden
+- danny
+- earth
+- henry
+### Other Branch
+- main
+
 ## Prerequisites
 
 - Git and VSCode installed.
