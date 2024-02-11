@@ -4,12 +4,12 @@ This tutorial provides a step-by-step guide on using Git with VSCode for branch 
 
 ## Branches
 ### Default Branch
-- master
+- `master`
 ### Temporary Branches
-- ayden
-- danny
-- earth
-- henry
+- `ayden`
+- `danny`
+- `earth`
+- `henry`
 ### Other Branch
 - main
 
