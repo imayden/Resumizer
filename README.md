@@ -1,7 +1,7 @@
 # Resumiser - Efficient AI Resume Builder
 
 ## Team Members
-- [Ayden - imayden](https://github.com/imayden) - branch: ayden
+- [Ayden - Resumizer](https://github.com/Resumizer) - branch: ayden
 - [Danny - dcapua](https://github.com/dcapua) - branch: danny
 - [Earth - earthcha](https://github.com/earthcha) - branch: earth
 - [Henry - phhoang98a](https://github.com/phhoang98a) - branch: henry
@@ -52,7 +52,7 @@ Body(JSON):
 
 Result: List of job information about company, title, date_posted, job_url, location, site
 ```
-<img width="712" alt="Screenshot 2024-02-02 at 4 55 53 AM" src="https://github.com/imayden/Resumizer/assets/34488386/9f102deb-af29-42b9-8250-0266c22be785">
+<img width="712" alt="Screenshot 2024-02-02 at 4 55 53 AM" src="https://github.com/Resumizer/Resumizer/assets/34488386/9f102deb-af29-42b9-8250-0266c22be785">
 
 ### Resume Server
 _**Setup**_
@@ -71,7 +71,7 @@ Body(form-data):
 
 Result: List of resume information about personal_info, education, work_experience, personal_projects, skilss
 ```
-![Screenshot 2024-02-03 at 2 58 16 AM](https://github.com/imayden/Resumizer/assets/34488386/5d820c09-113a-46e1-a855-ae6e76facc51)
+![Screenshot 2024-02-03 at 2 58 16 AM](https://github.com/Resumizer/Resumizer/assets/34488386/5d820c09-113a-46e1-a855-ae6e76facc51)
 
 ## Database
 * TBD
