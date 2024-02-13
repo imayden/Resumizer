@@ -43,16 +43,39 @@ _**Setup**_
 
 _**Apis**_
 ```yml
-POST - http://127.0.0.1:5000/job
+POST - http://127.0.0.1:8000/jobs
 
 Body(JSON): 
 - "job_title": Title of the job (Software engineer)
 - "country": Country of job posts
 - "location": Specific location (optional)
 
+You can specify the following countries when searching on Indeed (use the exact name, * indicates support for Glassdoor):
+
+|                      |              |            |                |
+|----------------------|--------------|------------|----------------|
+| Argentina            | Australia*   | Austria*   | Bahrain        |
+| Belgium*             | Brazil*      | Canada*    | Chile          |
+| China                | Colombia     | Costa Rica | Czech Republic |
+| Denmark              | Ecuador      | Egypt      | Finland        |
+| France*              | Germany*     | Greece     | Hong Kong*     |
+| Hungary              | India*       | Indonesia  | Ireland*       |
+| Israel               | Italy*       | Japan      | Kuwait         |
+| Luxembourg           | Malaysia     | Mexico*    | Morocco        |
+| Netherlands*         | New Zealand* | Nigeria    | Norway         |
+| Oman                 | Pakistan     | Panama     | Peru           |
+| Philippines          | Poland       | Portugal   | Qatar          |
+| Romania              | Saudi Arabia | Singapore* | South Africa   |
+| South Korea          | Spain*       | Sweden     | Switzerland*   |
+| Taiwan               | Thailand     | Turkey     | Ukraine        |
+| United Arab Emirates | UK*          | USA*       | Uruguay        |
+| Venezuela            | Vietnam      |            |                |
+
+
 Result: List of job information about company, title, date_posted, job_url, location, site
 ```
-<img width="712" alt="Screenshot 2024-02-02 at 4 55 53 AM" src="https://github.com/Resumizer/Resumizer/assets/34488386/9f102deb-af29-42b9-8250-0266c22be785">
+![Screenshot 2024-02-13 at 5 43 05 PM](https://github.com/imayden/Resumizer/assets/34488386/17565321-118b-4304-9060-8a4429c3b323)
+
 
 ### Resume Server
 _**Setup**_
