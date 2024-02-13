@@ -68,10 +68,13 @@ POST - http://localhost:3000
 
 Body(form-data): 
 - resume (File): PDF file
+- jobTitle (text)
+- openAIkey (text) 
 
-Result: List of resume information about personal_info, education, work_experience, personal_projects, skilss
+Result: The new content of the resume.
 ```
-![Screenshot 2024-02-03 at 2 58 16 AM](https://github.com/Resumizer/Resumizer/assets/34488386/5d820c09-113a-46e1-a855-ae6e76facc51)
+![Screenshot 2024-02-13 at 4 50 58 PM](https://github.com/imayden/Resumizer/assets/34488386/95dde719-0ba4-4140-bab4-a0529245c7e8)
+
 
 ## Database
 * TBD
