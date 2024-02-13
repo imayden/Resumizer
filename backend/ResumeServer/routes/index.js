@@ -45,8 +45,8 @@ router.post('/', upload.single('resume'), async (req, res, next) => {
         }
       ],
       model: "gpt-3.5-turbo-16k",
-      temperature:0,
-      top_p:1
+      temperature: 0.3,
+      top_p: 1
     });
     res.status(200).send(completion.choices[0]?.message?.content);
   } catch (error) {
