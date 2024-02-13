@@ -58,9 +58,8 @@ Result: List of job information about company, title, date_posted, job_url, loca
 _**Setup**_
 
 1. cd `/backend/ResumeServer`
-2. Generate an `OPENAI_API_KEY` at OpenAI and add it to the `.env` file.
-3. Install the dependencies by running `npm install`
-4. Start the development server by running `npm start`
+2. Install the dependencies by running `npm install`
+3. Start the development server by running `npm start`
 
 _**Apis**_
 ```yml
