@@ -8,11 +8,8 @@ const { OpenAI } = require("openai");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-
-const openai = new OpenAI({ key: process.env.OPENAI_API_KEY });
-
 router.post('/', upload.single('resume'), async (req, res, next) => {
-  const { jobTitle } = req.body; 
+  const { jobTitle, openAIkey } = req.body; 
   if (!req.file) {
     return res.status(400).json({ error: 'No file uploaded' });
   }
@@ -32,7 +29,8 @@ router.post('/', upload.single('resume'), async (req, res, next) => {
     - Directly quantify achievements, such as 'enhanced software efficiency by 30%' or 'cut down bug resolution time by 50%', to provide clear, measurable impacts of the work done.
     - Edit all grammar and phrasing errors
     - Remove any additional information: References, and Note part which is not included in the original content and created by AI
-    `
+    `;
+    const openai = new OpenAI({ key: openAIkey });
     const completion = await openai.chat.completions.create({
       messages: [
         {
