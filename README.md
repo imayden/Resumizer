@@ -85,7 +85,7 @@ _**Setup**_
 
 _**Apis**_
 ```yml
-POST - http://localhost:3000
+POST - https://tiny-teal-swordfish-cap.cyclic.app
 
 Body(form-data): 
 - resume (File): PDF file
@@ -94,7 +94,7 @@ Body(form-data):
 
 Result: The new content of the resume.
 ```
-![Screenshot 2024-02-13 at 4 50 58 PM](https://github.com/imayden/Resumizer/assets/34488386/95dde719-0ba4-4140-bab4-a0529245c7e8)
+![Screenshot 2024-02-13 at 7 15 36 PM](https://github.com/imayden/Resumizer/assets/34488386/288ecc35-b86c-4ab8-a63f-2823fae2377e)
 
 
 ## Database
