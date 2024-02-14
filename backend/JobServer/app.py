@@ -27,13 +27,13 @@ async def find_job(job:Job):
   location = job.location
 
   jobs: pd.DataFrame = scrape_jobs(
-      site_name=["indeed", "linkedin", "glassdoor"],
-      #site_name=["linkedin", "glassdoor"],
+      #site_name=["indeed", "linkedin", "glassdoor"],
+      site_name=["linkedin", "glassdoor", "zip_recruiter"],
       search_term=job_title,
       location=location,
       results_wanted=10,
       country_indeed=country,
-      proxy="http://jobspy:5a4vpWtj8EeJ2hoYzk@ca.smartproxy.com:20001"
+      #proxy="http://jobspy:5a4vpWtj8EeJ2hoYzk@ca.smartproxy.com:20001"
   )
   return {
     "job_url": jobs["job_url"].tolist(),
