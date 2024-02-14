@@ -43,14 +43,14 @@ _**Setup**_
 
 _**Apis**_
 ```yml
-POST - http://127.0.0.1:8000/jobs
+POST - https://job-server-0wyb.onrender.com/jobs
 
 Body(JSON): 
 - "job_title": Title of the job (Software engineer)
 - "country": Country of job posts
 - "location": Specific location (optional)
 
-You can specify the following countries when searching on Indeed (use the exact name, * indicates support for Glassdoor):
+Use the exact name, * indicates support for Glassdoor:
 
 |                      |              |            |                |
 |----------------------|--------------|------------|----------------|
@@ -74,8 +74,7 @@ You can specify the following countries when searching on Indeed (use the exact 
 
 Result: List of job information about company, title, date_posted, job_url, location, site
 ```
-![Screenshot 2024-02-13 at 5 43 05 PM](https://github.com/imayden/Resumizer/assets/34488386/17565321-118b-4304-9060-8a4429c3b323)
-
+![Screenshot 2024-02-13 at 6 56 56 PM](https://github.com/imayden/Resumizer/assets/34488386/ed7509ec-c14c-4d0b-86c8-d7fa12e37adb)
 
 ### Resume Server
 _**Setup**_
