@@ -30,7 +30,7 @@ router.post('/', upload.single('resume'), async (req, res, next) => {
     - Edit all grammar and phrasing errors
     - Remove any additional information: References, and Note part which is not included in the original content and created by AI
     `;
-    const openai = new OpenAI({ key: openAIkey });
+    const openai = new OpenAI({ apiKey: openAIkey });
     const completion = await openai.chat.completions.create({
       messages: [
         {
