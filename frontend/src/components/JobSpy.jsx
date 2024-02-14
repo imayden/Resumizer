@@ -11,12 +11,33 @@ const JobSpy = () => {
           Looking for a job?{" "}
           <span className="text-[#7F739F]"> Search here!</span>
         </h3>
-        
+
         <input
           type="text"
           placeholder="Search jobs..."
-          className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
+          className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-4 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
         />
+
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <div>
+            <button className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[24px] leading-[40px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] ">
+              Job Title
+              <span className=" animate-pulse"></span>
+            </button>
+          </div>
+          <div>
+            <button className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[24px] leading-[40px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] ">
+              Company
+              <span className=" animate-pulse"></span>
+            </button>
+          </div>
+          <div>
+            <button className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[24px] leading-[40px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] ">
+              Location
+              <span className=" animate-pulse"></span>
+            </button>
+          </div>
+        </div>
       </div>
     );
 }
