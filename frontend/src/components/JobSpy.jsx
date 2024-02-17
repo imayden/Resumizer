@@ -1,37 +1,39 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 function JobSpy() {
-
   const [jobData, setJobData] = useState({
-    job_title: '',
-    country: '',
-    location: ''
+    job_title: "",
+    country: "",
+    location: "",
   });
 
+  // Update job data based on user form input
   const handleChange = (event) => {
     const { name, value } = event.target;
     setJobData({
       ...jobData,
-      [name]: value
+      [name]: value,
     });
   };
 
-  // jobspy POST
+  const [jobResults, setJobResults] = useState(null);
+
+  // jobspy backend call
   const handleSearch = (event) => {
     event.preventDefault();
-    axios.post('https://job-server-0wyb.onrender.com/jobs', jobData)
-      .then(response => {
-        console.log('Job search successful:', response.data);
-
-        setJobData({ // reset
-          job_title: '',
-          country: '',
-          location: ''
-        });
+    axios
+      .post("https://job-server-0wyb.onrender.com/jobs", {
+        job_title: jobData.job_title,
+        country: jobData.country,
+        location: jobData.location,
       })
-      .catch(error => {
-        console.error('Error searching for job:', error);
+      .then((response) => {
+        console.log("Job search successful:", response.data);
+        setJobResults(response.data); // update job results to use in grid view
+      })
+      .catch((error) => {
+        console.error("Error searching for job:", error);
       });
   };
 
@@ -45,16 +47,17 @@ function JobSpy() {
         Looking for a job? <span className="text-[#7F739F]"> Search here!</span>
       </h3>
 
+{/* form and search button */}
       <div style={{ display: "flex", gap: "10px" }}>
         <div>
           <form onSubmit={handleSearch}>
             <input
-              className = "min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-4 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
-              type = "text"
-              name = "job_title"
-              value = {jobData.job_title}
-              onChange = {handleChange}
-              placeholder = "Enter job title"
+              className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-4 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
+              type="text"
+              name="job_title"
+              value={jobData.job_title}
+              onChange={handleChange}
+              placeholder="Enter job title"
               required
             ></input>
           </form>
@@ -62,12 +65,12 @@ function JobSpy() {
         <div>
           <form>
             <input
-              className = "min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-4 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
-              type = "text"
-              name = "country"
-              value = {jobData.country}
-              onChange = {handleChange}
-              placeholder = "Enter country"
+              className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-4 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
+              type="text"
+              name="country"
+              value={jobData.country}
+              onChange={handleChange}
+              placeholder="Enter country"
               required
             ></input>
           </form>
@@ -75,25 +78,43 @@ function JobSpy() {
         <div>
           <form>
             <input
-              className = "min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-4 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
-              type = "text"
-              name = "location"
-              value = {jobData.location}
-              onChange = {handleChange}
-              placeholder = "Enter location"
+              className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-4 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
+              type="text"
+              name="location"
+              value={jobData.location}
+              onChange={handleChange}
+              placeholder="Enter location"
               required
             ></input>
           </form>
         </div>
         <div>
           <button
-            className = "min-h-[96px] w-full transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
-            type = "submit"
+            className="min-h-[96px] w-full transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
+            type="submit"
           >
             Search Jobs
           </button>
         </div>
       </div>
+
+    {/* show table when there are results */}
+      {jobResults && (
+        <div>
+          <h2>Job Results</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
+            {jobResults.map(job => (
+              <div key={job.job_url}>
+                <h3>{job.title}</h3>
+                <p>{job.company}</p>
+                <p>{job.location}</p>
+                <p>{job.date_posted}</p>
+                <a href={job.url}>[job.site]</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
