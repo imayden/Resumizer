@@ -45,6 +45,7 @@ function JobSpy() {
 
     return (
         <Tile className="mb-[8px] w-[100%] grid gap-x-2 gap-y-2 grid-cols-[1fr_0.7fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
+            
             <div className="
                 flex 
                 flex-col 
@@ -65,30 +66,28 @@ function JobSpy() {
                     Search here!
                     </span>
                 </h3>
-
             </div>
 
             {/* form and search button */}
             <div >
-                <div>
                      <form onSubmit={handleSearch} className="flex flex-col gap-4">
                     <InputField
                         name="job_title"
                         value={jobData.job_title}
                         onChange={handleChange}
-                        placeholder="Enter job title"
+                        placeholder="Enter Target Job Title"
                     />
                     <InputField
                         name="country"
                         value={jobData.country}
                         onChange={handleChange}
-                        placeholder="Enter country"
+                        placeholder="Enter Preferred Country"
                     />
                     <InputField
                         name="location"
                         value={jobData.location}
                         onChange={handleChange}
-                        placeholder="Enter location"
+                        placeholder="Enter Preferred City"
                     />
                     {/* Search Button */}
                     <Button 
@@ -97,11 +96,6 @@ function JobSpy() {
                             Search Now
                         </Button>
                 </form>
-
-                    <div>
-                        
-                    </div>
-                </div>
 
             </div>
 

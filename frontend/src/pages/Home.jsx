@@ -7,6 +7,7 @@ import UploadPopup from "../components/UploadPopup";
 import JobSpy from '../components/JobSpy';
 import HeroSection from "../components/HeroSection";
 import Tile from "../components/Tile";
+import Button from "../components/Button";
 
 function Home() {
 
@@ -56,23 +57,19 @@ function Home() {
             </div>
 
             {/* Upload File Button */}
-            <button
-              // href="#"
-              onClick={toggleUploadPopup} // Toggle event for the Upload File Button
-              className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
-            >
-              Upload Now
-              <span className=" animate-pulse"></span>
-            </button>
+            <Button 
+                onClick={toggleUploadPopup} 
+                variant="primary">
+                Upload Now
+            </Button>
+
 
             {/* Manual Input Button */}
-            <a
-              href="#"
-              className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-[#4F0ED1] hover:text-white dark:text-[#7A7497] bg-[#6D49FE] bg-opacity-0 hover:bg-[#6D49FE] ring-2 ring-[#4F0ED1] dark:ring-[#7A7497] hover:ring-0"
-            >
-              Input Manually
-              <span className=" animate-pulse"></span>
-            </a>
+            <Button 
+                href="#"
+                variant="secondary">
+                Input Now
+            </Button>
           </Tile>
 
         </div>
