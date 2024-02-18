@@ -10,10 +10,10 @@ const navlinkes = [
     name: "home.",
     link: "/home",
   },
-  // {
-  //   name: "about.",
-  //   link: "/about",
-  // },
+  {
+    name: "settings.",
+    link: "/settings",
+  },
   {
     name: "result.",
     link: "/result",
@@ -56,9 +56,16 @@ function Navbar() {
       <FadeIn>
 
         {/* Navbar main body, using flex layout, including Resumizer title and navigation links */}
-        <div className="flex max-w-[1240px] justify-between max-sm:justify-center items-center text-black dark:text-white mx-auto px-8 py-4 max-lg:mx-2 rounded-[999px] mt-6 
-        bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
-        dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black ">
+        <div className="
+        flex max-w-[1240px] 
+        mx-3
+        justify-between max-sm:justify-center 
+        items-center text-black dark:text-white 
+        mx-auto px-8 py-4 max-lg:mx-2 rounded-[999px] mt-6 
+        bg-opacity-40 backdrop-blur-3xl 
+        border-white border-[1px] border-opacity-5 bg-white 
+        dark:bg-opacity-40 dark:backdrop-blur-3xl 
+        dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black ">
 
           {/* Auto-switch logo by themes */}
           <Link to="/home" className="text-lg leading-6 -translate-x-[0.01em]">

@@ -5,6 +5,7 @@ import { FadeIn } from "../components/FadeIn";
 import Socials from "../components/Socials";
 import UploadPopup from "../components/UploadPopup";
 import JobSpy from '../components/JobSpy';
+import HeroSection from "../components/HeroSection";
 
 function Home() {
 
@@ -18,6 +19,11 @@ function Home() {
 
   return (
     <Container id="home">
+
+      {/* Hero Section */}
+      <FadeIn>
+        <HeroSection />
+      </FadeIn>
 
       {/* Title Line */}
       <FadeIn>
