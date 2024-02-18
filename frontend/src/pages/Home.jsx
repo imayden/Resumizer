@@ -6,6 +6,7 @@ import Socials from "../components/Socials";
 import UploadPopup from "../components/UploadPopup";
 import JobSpy from '../components/JobSpy';
 import HeroSection from "../components/HeroSection";
+import Tile from "../components/Tile";
 
 function Home() {
 
@@ -31,32 +32,20 @@ function Home() {
         <div className="grid gap-x-2 gap-y-2 grid-cols-[1fr_0.7fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
 
           {/* Title Tile */}
-          <div className="flex w-full max-w-[746px] flex-col items-start gap-x-8 gap-y-8 px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8 
-          bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
-          dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black " >
-            <img
-              src={logo}
-              alt="logo"
-              className="overflow-hidden w-[108px] h-[108px] flex-[0_0_auto] rounded-full"
-              // dark:ring-black dark:ring-opacity-10 dark:ring-[2px]"
-            />
+          <Tile>
+            <img src={logo} alt="logo" className="overflow-hidden w-[108px] h-[108px] flex-[0_0_auto] rounded-full" />
             <h1 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
               Resumizer
               <br />
               Build Your Resume
-              {" "}<br />
-              <span className="text-[#7F739F]">
-                {" "}
-                In Minutes.
-              </span>
+              <br />
+              <span className="text-[#7F739F]">In Minutes.</span>
             </h1>
-          </div>
+          </Tile>
 
           {/* Action Tile */}
-          <div className="flex flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center p-12 rounded-3xl max-md:p-8 
-          bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
-          dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black " >
-            <div className="flex flex-col justify-center items-center mb-8 gap-3 max-md:mb-4">
+          <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center">
+          <div>
               <h2 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
                 <span className="text-[#7F739F]">
                   Ready To Feel {" "}
@@ -84,8 +73,7 @@ function Home() {
               Input Manually
               <span className=" animate-pulse"></span>
             </a>
-
-          </div>
+          </Tile>
 
         </div>
       </FadeIn>

@@ -3,6 +3,7 @@ import { FadeIn } from "./FadeIn";
 import { Link, useLocation } from "react-router-dom";
 import blackLogo from '../assets/colorLogo.svg';
 import whiteLogo from '../assets/whiteLogo.svg';
+import Container from './Container';
 
 // Define the data for navigation links
 const navlinkes = [
@@ -52,13 +53,12 @@ function Navbar() {
 
 
   return (
-    <div >
+    <Container >
       <FadeIn>
 
         {/* Navbar main body, using flex layout, including Resumizer title and navigation links */}
         <div className="
         flex max-w-[1240px] 
-        mx-3
         justify-between max-sm:justify-center 
         items-center text-black dark:text-white 
         mx-auto px-8 py-4 max-lg:mx-2 rounded-[999px] mt-6 
@@ -106,7 +106,7 @@ function Navbar() {
           </div>
         </div>
       </FadeIn>
-    </div>
+    </Container>
   );
 }
 

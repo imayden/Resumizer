@@ -1,4 +1,5 @@
 // Updated by Earth https://github.com/earthcha
+// Modified by Ayden - https://github.com/imayden
 
 import React from 'react';
 

@@ -1,7 +1,11 @@
-// Updated by Danny -  https://github.com/dcapua
+// Create by Danny -  https://github.com/dcapua
+// Modified by Ayden - https://github.com/imayden
 
 import React, { useState } from "react";
 import axios from "axios";
+import Tile from "./Tile";
+import InputField from "./InputField";
+import Button from "./Button";
 
 function JobSpy() {
     const [jobData, setJobData] = useState({
@@ -40,76 +44,68 @@ function JobSpy() {
     };
 
     return (
-        <div
-            className="
-      flex w-full
+        <Tile className="mb-[8px] w-[100%] grid gap-x-2 gap-y-2 grid-cols-[1fr_0.7fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
+            <div className="
+                flex 
+                flex-col 
+                justify-center 
+                item-start
+                h-full
+                ">
+                <h3 className="
+                    max-md:text-[32px] 
+                    max-md:leading-10 
+                    max-md:tracking-[-0.01em] 
+                    text-[#4F0ED1] 
+                    dark:text-white
+                    \">
+                    Looking for a job? 
+                    <br />
+                    <span className="text-[#7F739F]"> 
+                    Search here!
+                    </span>
+                </h3>
 
-      items-start gap-x-8 
-      gap-y-8 px-12 py-10 
-      rounded-3xl 
-      max-mdd:max-w-none 
-      max-md:p-8 mb-[8px]
-        bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
-          dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black "
-        >
-            <h3 className="max-md:text-[32px] max-md:leading-10 max-md:tracking-[-0.01em] text-[#4F0ED1] dark:text-white">
-                Looking for a job? <span className="text-[#7F739F]"> Search here!</span>
-            </h3>
+            </div>
 
             {/* form and search button */}
-            
-            <div 
-                className="flex-col left-0 "
-                style={{ display: "flex", gap: "10px" }}>
+            <div >
                 <div>
-                    <form onSubmit={handleSearch}>
-                        <input
-                            className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-4 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
-                            type="text"
-                            name="job_title"
-                            value={jobData.job_title}
-                            onChange={handleChange}
-                            placeholder="Enter job title"
-                            required
-                        ></input>
-                    </form>
+                     <form onSubmit={handleSearch} className="flex flex-col gap-4">
+                    <InputField
+                        name="job_title"
+                        value={jobData.job_title}
+                        onChange={handleChange}
+                        placeholder="Enter job title"
+                    />
+                    <InputField
+                        name="country"
+                        value={jobData.country}
+                        onChange={handleChange}
+                        placeholder="Enter country"
+                    />
+                    <InputField
+                        name="location"
+                        value={jobData.location}
+                        onChange={handleChange}
+                        placeholder="Enter location"
+                    />
+                    {/* Search Button */}
+                    <Button 
+                        onClick={handleSearch} 
+                        variant="primary">
+                            Search Now
+                        </Button>
+                </form>
+
+                    <div>
+                        
+                    </div>
                 </div>
-                <div>
-                    <form>
-                        <input
-                            className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-4 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
-                            type="text"
-                            name="country"
-                            value={jobData.country}
-                            onChange={handleChange}
-                            placeholder="Enter country"
-                            required
-                        ></input>
-                    </form>
-                </div>
-                <div>
-                    <form>
-                        <input
-                            className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-4 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
-                            type="text"
-                            name="location"
-                            value={jobData.location}
-                            onChange={handleChange}
-                            placeholder="Enter location"
-                            required
-                        ></input>
-                    </form>
-                </div>
-                <div>
-                    <button
-                        className="min-h-[96px] w-full transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
-                        type="submit"
-                    >
-                        Search Jobs
-                    </button>
-                </div>
+
             </div>
-            
+
+
 
             {/* show table when there are results */}
             {jobResults && (
@@ -128,7 +124,7 @@ function JobSpy() {
                     </div>
                 </div>
             )}
-        </div>
+        </Tile>
     );
 }
 
