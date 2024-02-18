@@ -1,0 +1,34 @@
+name: Resume Backend CI
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'backend/ResumeServer/**'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'backend/ResumeServer/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+
+    - name: Install Dependencies
+      run: |
+        cd backend/ResumeServer
+        npm ci
+
+    - name: Run Tests
+      run: |
+        cd backend/ResumeServer
+        npm test
