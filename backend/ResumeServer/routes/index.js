@@ -49,7 +49,7 @@ router.post('/', upload.single('resume'), async (req, res, next) => {
     res.status(200).send(completion.choices[0]?.message?.content);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to parse PDF file. Please check the file and try again.' });
+    res.status(500).json({ error: 'Failed to parse PDF file. Please check the file and try again' });
   }
 
 });

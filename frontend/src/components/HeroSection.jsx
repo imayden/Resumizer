@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const HeroSection = () => {
@@ -11,4 +12,6 @@ const HeroSection = () => {
   );
 };
 
+
 export default HeroSection;
+
