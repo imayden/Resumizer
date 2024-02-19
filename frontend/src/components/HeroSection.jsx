@@ -1,17 +1,62 @@
-// Updated by Earth https://github.com/earthcha
-// Modified by Ayden - https://github.com/imayden
+import React, { useState, padding, useEffect } from 'react';
 
-import React from 'react';
+function HeroSection({ images }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-const HeroSection = () => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(current => (current + 1) % images.length);
+    }, 5000); 
+    return () => clearInterval(interval); 
+  }, [images.length]);
+
+
+  const handleClick = (link) => {
+    if (link) {
+      window.open(link, '_blank');
+    }
+  };
+
   return (
-    <div className="h-96 flex items-center justify-center text-white p-4 transition duration-300 ease-in transform hover:scale-110">
-      <div className="text-center">
-        <h1 className="text-6xl md:text-8xl font-bold mb-4">Welcome to Resumizer</h1>
-        <p className="text-3xl md:text-5xl text-5xl mb-4">-The Efficient AI resume maker-</p>
+    <div
+    className='
+    px-0 py-0 mx-0 my-0 
+    w-[100vw] 
+    h-[100vh]
+    overflow-hidden 
+    relative 
+    items-center
+    '
+    style={{ padding: "0", width: '100%', height: '100%' }}
+
+    >
+      <div
+        className='w-full h-full transition-transform duration-1000 ease-in-out flex'
+        style={{ 
+            width: `${images.length * 100}%`, 
+            height: '100%',
+            display: 'flex', 
+            transform: `translateX(-${currentIndex * 100 / images.length}%)` }}
+      >
+        {images.map((image, index) => (
+          <img 
+            key={index} 
+            src={image.src} 
+            alt={`Slide ${index}`}
+            onClick={() => handleClick(image.link)} // handle Click
+            // className="w-full h-full object-cover"
+            className="w-full h-full flex items-center justify-center"
+            style={{ 
+                width: `${100 / images.length}%`, 
+                // height: `${100 / images.length}%`, 
+                height: `auto`, 
+                objectFit: 'cover' 
+            }}
+          />
+        ))}
       </div>
     </div>
   );
-};
+}
 
 export default HeroSection;

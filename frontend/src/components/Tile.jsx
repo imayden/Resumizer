@@ -1,18 +1,18 @@
 import React from 'react';
 
 // props includes children, className, and any extra propp, like onClick...
-const Tile = ({ children, className, ...props }) => {
+const Tile = ({ children,  padding = "px-12 py-10 max-md:p-8", items = "start", height, className, ...props }) => {
   // Basic Styles
   const baseStyle = [
     // layout styling
+    padding,
+    className,
+    items,
     "flex w-full",
     "flex-col",
-    "items-start",
     "gap-x-8 gap-y-8",
-    "px-12 py-10",
     "rounded-3xl",
-    "max-mdd:max-w-none",
-    "max-md:p-8",
+    "max-w-none",
     "overflow-hidden",
     // background styling
     "bg-opacity-40",

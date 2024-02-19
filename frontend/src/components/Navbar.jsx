@@ -58,7 +58,7 @@ function Navbar() {
 
         {/* Navbar main body, using flex layout, including Resumizer title and navigation links */}
         <div className="
-        flex max-w-[1240px] 
+        flex max-w-[1240px] mb-2
         justify-between max-sm:justify-center 
         items-center text-black dark:text-white 
         mx-auto px-8 py-4 max-lg:mx-2 rounded-[999px] mt-6 

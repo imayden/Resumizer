@@ -9,6 +9,11 @@ import HeroSection from "../components/HeroSection";
 import Tile from "../components/Tile";
 import Button from "../components/Button";
 
+// import images for hero section
+import image1 from "../assets/img1.gif";
+import image2 from "../assets/img2.gif";
+import image3 from "../assets/img3.gif";
+
 function Home() {
 
   // The upload pop-up display status - Default is not open
@@ -19,13 +24,25 @@ function Home() {
     setShowUploadPopup(!showUploadPopup);
   };
 
+  // Images with links
+  const images = [
+    { src: image1, alt: "image1", link: "https://www.pinterest.com/pin/422916221269288864/" },
+    { src: image2, alt: "image2", link: "https://www.pinterest.com/pin/800303796313230970/" },
+    { src: image3, alt: "image3", link: "https://www.pinterest.com/pin/3448137206502136/" },
+  ];
+
   return (
     <Container id="home">
 
       {/* Hero Section */}
+
       <FadeIn>
-        <HeroSection />
+        <Tile padding="px-0 py-0" className="overflow-hidden" >
+        <HeroSection images={images} />
+        </Tile>
       </FadeIn>
+
+
 
       {/* Title Line */}
       <FadeIn>
@@ -46,7 +63,7 @@ function Home() {
 
           {/* Action Tile */}
           <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center">
-          <div>
+            <div>
               <h2 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
                 <span className="text-[#7F739F]">
                   Ready To Feel {" "}
@@ -57,18 +74,18 @@ function Home() {
             </div>
 
             {/* Upload File Button */}
-            <Button 
-                onClick={toggleUploadPopup} 
-                variant="primary">
-                Upload Now
+            <Button
+              onClick={toggleUploadPopup}
+              variant="primary">
+              Upload Now
             </Button>
 
 
             {/* Manual Input Button */}
-            <Button 
-                href="#"
-                variant="secondary">
-                Input Now
+            <Button
+              href="#"
+              variant="secondary">
+              Input Now
             </Button>
           </Tile>
 

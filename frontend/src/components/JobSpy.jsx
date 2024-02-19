@@ -44,6 +44,7 @@ function JobSpy() {
     };
 
     return (
+        
         <Tile className="mb-[8px] w-[100%] grid gap-x-2 gap-y-2 grid-cols-[1fr_0.7fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
             
             <div className="

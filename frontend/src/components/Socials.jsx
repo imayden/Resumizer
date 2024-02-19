@@ -6,20 +6,24 @@ const socialData = [
     link: "https://github.com/Resumizer/Resumizer.git",
   },
   {
-    name: "Ayden",
+    name: "Ayden.",
     link: "https://github.com/Resumizer",
   },
   {
-    name: "Danny",
+    name: "Danny.",
     link: "https://github.com/dcapua",
   },
   {
-    name: "Earth",
+    name: "Earth.",
     link: "https://github.com/earthcha",
   },
   {
-    name: "Henry",
+    name: "Henry.",
     link: "https://github.com/phhoang98a", 
+  },
+  {
+    name: "Contact.",
+    link: "https://github.com/", 
   }
 ];
 function Socials() {
