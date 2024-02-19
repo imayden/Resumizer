@@ -3,23 +3,27 @@ import React from "react";
 const socialData = [
   {
     name: "GitHub Repo.",
-    link: "https://github.com/imayden/Resumizer.git",
+    link: "https://github.com/Resumizer/Resumizer.git",
   },
   {
-    name: "Ayden",
-    link: "https://github.com/imayden",
+    name: "Ayden.",
+    link: "https://github.com/Resumizer",
   },
   {
-    name: "Danny",
+    name: "Danny.",
     link: "https://github.com/dcapua",
   },
   {
-    name: "Earth",
+    name: "Earth.",
     link: "https://github.com/earthcha",
   },
   {
-    name: "Henry",
+    name: "Henry.",
     link: "https://github.com/phhoang98a", 
+  },
+  {
+    name: "Contact.",
+    link: "https://github.com/", 
   }
 ];
 function Socials() {

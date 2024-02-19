@@ -1,7 +1,7 @@
 # Resumiser - Efficient AI Resume Builder
 
 ## Team Members
-- [Ayden - imayden](https://github.com/imayden) - branch: ayden
+- [Ayden - Resumizer](https://github.com/Resumizer) - branch: ayden
 - [Danny - dcapua](https://github.com/dcapua) - branch: danny
 - [Earth - earthcha](https://github.com/earthcha) - branch: earth
 - [Henry - phhoang98a](https://github.com/phhoang98a) - branch: henry
@@ -43,35 +43,59 @@ _**Setup**_
 
 _**Apis**_
 ```yml
-POST - http://127.0.0.1:5000/job
+POST - https://job-server-0wyb.onrender.com/jobs
 
 Body(JSON): 
 - "job_title": Title of the job (Software engineer)
 - "country": Country of job posts
 - "location": Specific location (optional)
 
+Use the exact name, * indicates support for Glassdoor:
+
+|                      |              |            |                |
+|----------------------|--------------|------------|----------------|
+| Argentina            | Australia*   | Austria*   | Bahrain        |
+| Belgium*             | Brazil*      | Canada*    | Chile          |
+| China                | Colombia     | Costa Rica | Czech Republic |
+| Denmark              | Ecuador      | Egypt      | Finland        |
+| France*              | Germany*     | Greece     | Hong Kong*     |
+| Hungary              | India*       | Indonesia  | Ireland*       |
+| Israel               | Italy*       | Japan      | Kuwait         |
+| Luxembourg           | Malaysia     | Mexico*    | Morocco        |
+| Netherlands*         | New Zealand* | Nigeria    | Norway         |
+| Oman                 | Pakistan     | Panama     | Peru           |
+| Philippines          | Poland       | Portugal   | Qatar          |
+| Romania              | Saudi Arabia | Singapore* | South Africa   |
+| South Korea          | Spain*       | Sweden     | Switzerland*   |
+| Taiwan               | Thailand     | Turkey     | Ukraine        |
+| United Arab Emirates | UK*          | USA*       | Uruguay        |
+| Venezuela            | Vietnam      |            |                |
+
+
 Result: List of job information about company, title, date_posted, job_url, location, site
 ```
-<img width="712" alt="Screenshot 2024-02-02 at 4 55 53 AM" src="https://github.com/imayden/Resumizer/assets/34488386/9f102deb-af29-42b9-8250-0266c22be785">
+![Screenshot 2024-02-13 at 6 56 56 PM](https://github.com/imayden/Resumizer/assets/34488386/ed7509ec-c14c-4d0b-86c8-d7fa12e37adb)
 
 ### Resume Server
 _**Setup**_
 
 1. cd `/backend/ResumeServer`
-2. Generate an `OPENAI_API_KEY` at OpenAI and add it to the `.env` file.
-3. Install the dependencies by running `npm install`
-4. Start the development server by running `npm start`
+2. Install the dependencies by running `npm install`
+3. Start the development server by running `npm start`
 
 _**Apis**_
 ```yml
-POST - http://localhost:3000
+POST - https://tiny-teal-swordfish-cap.cyclic.app
 
 Body(form-data): 
 - resume (File): PDF file
+- jobTitle (text)
+- openAIkey (text) 
 
-Result: List of resume information about personal_info, education, work_experience, personal_projects, skilss
+Result: The new content of the resume.
 ```
-![Screenshot 2024-02-03 at 2 58 16 AM](https://github.com/imayden/Resumizer/assets/34488386/5d820c09-113a-46e1-a855-ae6e76facc51)
+![Screenshot 2024-02-13 at 7 15 36 PM](https://github.com/imayden/Resumizer/assets/34488386/288ecc35-b86c-4ab8-a63f-2823fae2377e)
+
 
 ## Database
 * TBD
