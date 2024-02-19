@@ -29,6 +29,8 @@ jobs:
         npm ci
 
     - name: Run Tests
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
         cd backend/ResumeServer
         npm test
