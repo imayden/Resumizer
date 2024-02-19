@@ -1,0 +1,36 @@
+name: Resume Backend CI
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'backend/ResumeServer/**'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'backend/ResumeServer/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Dependencies
+      run: |
+        cd backend/ResumeServer
+        npm ci
+
+    - name: Run Tests
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: |
+        cd backend/ResumeServer
+        npm test

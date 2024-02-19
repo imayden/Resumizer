@@ -6,6 +6,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Result from "./pages/Result";
 
+
+import Settings from "./pages/Settings";
+
 function App() {
   return (
     <Router>
@@ -17,6 +20,8 @@ function App() {
           <Route path="/" element={<Navigate replace to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/result" element={<Result />} />
+          <Route path="/settings" element={<Settings />} />
+
           {/* More page routes below */}
         </Routes>
 
