@@ -20,10 +20,10 @@ const navlinkes = [
     link: "/result",
   },
 
-  // {
-  //   name: "contact.",
-  //   link: "/contact",
-  // },
+  {
+    name: "setting.",
+    link: "/setting",
+  },
 ];
 
 // Define the Navbar component

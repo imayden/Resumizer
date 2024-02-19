@@ -5,9 +5,11 @@ import { FadeIn } from "../components/FadeIn";
 import Socials from "../components/Socials";
 import UploadPopup from "../components/UploadPopup";
 import JobSpy from '../components/JobSpy';
+
 import HeroSection from "../components/HeroSection";
 import Tile from "../components/Tile";
 import Button from "../components/Button";
+
 
 function Home() {
 
@@ -29,6 +31,8 @@ function Home() {
 
       {/* Title Line */}
       <FadeIn>
+        {/* Hero Section */}
+          <HeroSection />
 
         <div className="grid gap-x-2 gap-y-2 grid-cols-[1fr_0.7fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
 
