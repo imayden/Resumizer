@@ -1,22 +1,10 @@
-import React, { useState, padding, useEffect } from 'react';
 
-function HeroSection({ images }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+// Updated by Earth https://github.com/earthcha
+// Modified by Ayden - https://github.com/imayden
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex(current => (current + 1) % images.length);
-    }, 5000); 
-    return () => clearInterval(interval); 
-  }, [images.length]);
-
-
-  const handleClick = (link) => {
-    if (link) {
-      window.open(link, '_blank');
-    }
-  };
-
+>>>>>>>>> Temporary merge branch 2
+import React from 'react';
+const HeroSection = () => {
   return (
     <div
     className='
@@ -60,3 +48,4 @@ function HeroSection({ images }) {
 }
 
 export default HeroSection;
+
