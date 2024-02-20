@@ -1,9 +1,5 @@
-
-// Updated by Earth https://github.com/earthcha
-// Modified by Ayden - https://github.com/imayden
-
->>>>>>>>> Temporary merge branch 2
 import React from 'react';
+
 const HeroSection = () => {
   return (
     <div
