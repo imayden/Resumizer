@@ -119,11 +119,15 @@ function JobSpy() {
                     </div>
                 </div>
 
-                <Tile>
-                    <div className="flex-col justify-between items-stretch text-center"
+                <Tile 
+                    className="bg-opacity-0 dark:bg-opacity-0"
+                    padding="px-6 pt-8 pb-6"
+                
+                >
+                    <div className="flex-col justify-between items-stretch text-center "
                     >
 
-                        
+
                         <p className="mb-4">
 
                             <span className="
@@ -131,17 +135,17 @@ function JobSpy() {
                         text-md
                         font-regular
                         ">
-                                · Searching Results will be shown below ·
+                                · Searching Results Will Be Shown Below ·
                             </span>
                         </p>
 
-                        <hr className="border-t-[1px] border-[#4F0ED1] dark:border-white opacity-30" />
+                        {/* <hr className="border-t-[1px] border-[#4F0ED1] dark:border-white opacity-30" /> */}
 
                         {/* show table when there are results */}
                         <div
                             className="
                     w-full
-                    rounded-2xl
+                    rounded-lg
                     overflow-hidden
                     "
                         >
@@ -149,10 +153,9 @@ function JobSpy() {
 
                             {jobResults.site.length > 0 && (
                                 <div className="
-                        w-full rounded-2xl
-                        bg-white bg-opacity-20 
-                        dark:bg-black dark:bg-opacity-20 
-                        px-8 py-8
+                        w-full 
+
+                        py-8
                         overflow-x-scroll
                         ">
 
