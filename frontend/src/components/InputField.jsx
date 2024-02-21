@@ -3,7 +3,8 @@ import React from 'react';
 const InputField = ({ name, value, onChange, placeholder }) => {
   const baseStyle = [
     // Input specific styling
-    "w-full max-h-[72px] px-4 py-4",
+    "w-full px-4 py-4",
+    "min-h-[96px]",
     "mb-4",
     "text-2xl text-center",
     "text-black dark:text-white",
