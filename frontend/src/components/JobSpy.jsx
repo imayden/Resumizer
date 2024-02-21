@@ -70,7 +70,7 @@ function JobSpy() {
                     text-[#4F0ED1] 
                     dark:text-white
                     \">
-                        Looking for a job?
+                        Seeking a job in the US?
                         <br />
                         <span className="text-[#7F739F]">
                             Search here!
