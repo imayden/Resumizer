@@ -9,7 +9,7 @@ const InputField = ({ name, value, onChange, placeholder }) => {
     "text-2xl text-center",
     "text-black dark:text-white",
     "font-medium",
-    "bg-white bg-opacity-10 hover:bg-opacity-25",
+    "bg-white bg-opacity-30 hover:bg-opacity-25",
     "transition-[background-color] duration-300 ease-[ease-out]",
     "tracking-[-0.01em]",
     "rounded-full",
