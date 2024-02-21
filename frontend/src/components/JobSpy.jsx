@@ -109,7 +109,7 @@ function JobSpy() {
                             <span className="
                         opacity-50
                         text-sm
-                        font-thin
+                        font-regular
                         ">
                                 · Please wait for the searching initialization ·
                             </span>
@@ -123,19 +123,19 @@ function JobSpy() {
                     <div className="flex-col justify-between items-stretch text-center"
                     >
 
-                        <hr className="border-t-[1px] border-[#4F0ED1] dark:border-white opacity-30" />
+                        
                         <p className="mb-4">
 
                             <span className="
                         opacity-50
-                        text-sm
-                        font-thin
+                        text-md
+                        font-regular
                         ">
-                                · Results will be shown below ·
+                                · Searching Results will be shown below ·
                             </span>
                         </p>
 
-
+                        <hr className="border-t-[1px] border-[#4F0ED1] dark:border-white opacity-30" />
 
                         {/* show table when there are results */}
                         <div
