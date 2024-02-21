@@ -10,9 +10,9 @@ import Tile from "../components/Tile";
 import Button from "../components/Button";
 
 // import images for hero section
-import image1 from "../assets/img1.gif";
-import image2 from "../assets/img2.gif";
-import image3 from "../assets/img3.gif";
+import image1 from "../assets/img1.png";
+import image2 from "../assets/img2.png";
+import image3 from "../assets/img3.png";
 
 function Home() {
 
@@ -26,9 +26,9 @@ function Home() {
 
   // Images with links
   const images = [
-    { src: image1, alt: "image1", link: "https://www.pinterest.com/pin/422916221269288864/" },
-    { src: image2, alt: "image2", link: "https://www.pinterest.com/pin/800303796313230970/" },
-    { src: image3, alt: "image3", link: "https://www.pinterest.com/pin/3448137206502136/" },
+    { src: image1, alt: "image1", link: "/settings" },
+    { src: image2, alt: "image2", link: "/result" },
+    { src: image3, alt: "image3", link: "/settings" },
   ];
 
   return (
