@@ -67,10 +67,11 @@ function JobSpy() {
                                 Search here!
                             </span>
                         </h3>
+                        <div>
+                            <br />
+                        </div>
                     </div>
-                    <div>
-                        <br />
-                    </div>
+
 
                     {/* form and search button */}
                     <div >
