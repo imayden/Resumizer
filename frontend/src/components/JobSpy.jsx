@@ -7,13 +7,23 @@ import Tile from "./Tile";
 import InputField from "./InputField";
 import Button from "./Button";
 
+const initialState = {
+    job_url: [],
+    site: [],
+    title: [],
+    company: [],
+    location: [],
+    date_posted: [],
+};
+
 function JobSpy() {
     const [jobData, setJobData] = useState({
         job_title: "",
         country: "",
         location: "",
     });
-
+    const [jobResults, setJobResults] = useState(initialState);
+    const [loading, setLoading] = useState(false);
     // Update job data based on user form input
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -23,30 +33,27 @@ function JobSpy() {
         });
     };
 
-    const [jobResults, setJobResults] = useState(null);
-
     // jobspy backend call
-    const handleSearch = (event) => {
+    const handleSearch = async (event) => {
         event.preventDefault();
-        axios
-            .post("https://job-server-0wyb.onrender.com/jobs", {
+        try {
+            setJobResults(initialState);
+            setLoading(true)
+            const response = await axios.post("https://job-server-0wyb.onrender.com/jobs", {
                 job_title: jobData.job_title,
                 country: jobData.country,
                 location: jobData.location,
             })
-            .then((response) => {
-                console.log("Job search successful:", response.data);
-                setJobResults(response.data); // update job results to use in grid view
-            })
-            .catch((error) => {
-                console.error("Error searching for job:", error);
-            });
+            setJobResults(response.data)
+            setLoading(false)
+        } catch (error) {
+            console.error("Error searching for job:", error);
+        }
     };
 
     return (
-        
+
         <Tile className="mb-[8px] w-[100%] grid gap-x-2 gap-y-2 grid-cols-[1fr_0.7fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
-            
             <div className="
                 flex 
                 flex-col 
@@ -61,17 +68,17 @@ function JobSpy() {
                     text-[#4F0ED1] 
                     dark:text-white
                     \">
-                    Looking for a job? 
+                    Looking for a job?
                     <br />
-                    <span className="text-[#7F739F]"> 
-                    Search here!
+                    <span className="text-[#7F739F]">
+                        Search here!
                     </span>
                 </h3>
             </div>
 
             {/* form and search button */}
             <div >
-                     <form onSubmit={handleSearch} className="flex flex-col gap-4">
+                <form onSubmit={handleSearch} className="flex flex-col gap-4">
                     <InputField
                         name="job_title"
                         value={jobData.job_title}
@@ -91,11 +98,13 @@ function JobSpy() {
                         placeholder="Enter Preferred City"
                     />
                     {/* Search Button */}
-                    <Button 
-                        onClick={handleSearch} 
-                        variant="primary">
-                            Search Now
-                        </Button>
+                    <Button
+                        onClick={handleSearch}
+                        variant="primary"
+                        disabled={loading} // Disable button when loading
+                    >
+                        {loading ? 'Searching...' : 'Search Now'}
+                    </Button>
                 </form>
 
             </div>
@@ -103,20 +112,40 @@ function JobSpy() {
 
 
             {/* show table when there are results */}
-            {jobResults && (
-                <div>
+            {jobResults.site.length > 0 && (
+                <div className="w-full">
                     <h2>Job Results</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
-                        {jobResults.map(job => (
-                            <div key={job.job_url}>
-                                <h3>{job.title}</h3>
-                                <p>{job.company}</p>
-                                <p>{job.location}</p>
-                                <p>{job.date_posted}</p>
-                                <a href={job.url}>[job.site]</a>
-                            </div>
-                        ))}
-                    </div>
+                    <table className="w-full">
+                        <thead>
+                            <tr>
+                                <th className="text-left">Title</th>
+                                <th className="text-left">Company</th>
+                                <th className="text-left">Location</th>
+                                <th className="text-left">Date Posted</th>
+                                <th className="text-left">Job URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {jobResults.title.map((title, index) => (
+                                <tr key={index}>
+                                    <td>{title}</td>
+                                    <td>{jobResults.company[index]}</td>
+                                    <td>{jobResults.location[index]}</td>
+                                    <td>{jobResults.date_posted[index]}</td>
+                                    <td>
+                                        <a
+                                            href={jobResults.job_url[index]}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="hover:underline"
+                                        >
+                                            View Job
+                                        </a>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             )}
         </Tile>
