@@ -28,7 +28,7 @@ async def find_job(job:Job):
 
   jobs: pd.DataFrame = scrape_jobs(
       #site_name=["indeed", "linkedin", "glassdoor"],
-      site_name=["linkedin", "glassdoor"],
+      site_name=["linkedin"],
       search_term=job_title,
       location=location,
       results_wanted=10,
