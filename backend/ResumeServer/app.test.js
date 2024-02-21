@@ -15,7 +15,7 @@ describe('POST /', () => {
       .field('openAIkey', process.env.OPENAI_API_KEY);
 
     expect(response.statusCode).toBe(200);
-  }, 20000);
+  }, 30000);
 
   it('returns an error if no file is uploaded', async () => {
     const response = await request(app)
