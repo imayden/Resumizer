@@ -22,7 +22,8 @@
 ## Front-End
 _**Tech stack**_
 
-* React
+* ReactJS
+* JavaScript/HTML/CSS
 * Tailwind CSS
  
 _**Setup**_
