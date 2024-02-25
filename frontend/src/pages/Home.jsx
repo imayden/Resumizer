@@ -93,14 +93,16 @@ function Home() {
       </FadeIn>
 
 
-      <FadeIn>
-        {/* Socials Component */}
-        <Socials />
-      </FadeIn>
+      
 
       <FadeIn>
         {/* JobSpy Component */}
         <JobSpy />
+      </FadeIn>
+
+      <FadeIn>
+        {/* Socials Component */}
+        <Socials />
       </FadeIn>
 
       {/* Upload File Pop-up */}
