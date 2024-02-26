@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Container from "../components/Container";
-import logo from "../assets/logo.svg";
 import Socials from "../components/Socials";
 import { FadeIn } from "../components/FadeIn";
 import JobSpy from '../components/JobSpy';
@@ -25,7 +24,6 @@ function Reuslt() {
 
       {/* Title Line */}
       <FadeIn className = "mb-2">
-
         <Tile>
           <div className="flex flex-col justify-center items-center">
             <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
@@ -64,8 +62,8 @@ function Reuslt() {
 
         </Tile>
       </FadeIn>
-      <FadeIn>
 
+      <FadeIn>
         <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center">
           <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
             <span className="text-[#7F739F]">
@@ -91,7 +89,6 @@ function Reuslt() {
             Regenerate
           </Button>
         </Tile>
-
       </FadeIn>
 
       <div className="grid gap-x-2 gap-y-2 grid-cols-[1fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
@@ -139,17 +136,9 @@ function Reuslt() {
 
       </div>
 
-
-
-
       <FadeIn>
         {/* JobSpy Component */}
         <JobSpy />
-      </FadeIn>
-
-      <FadeIn>
-        {/* Socials Component */}
-        <Socials />
       </FadeIn>
 
 

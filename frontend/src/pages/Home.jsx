@@ -100,10 +100,6 @@ function Home() {
         <JobSpy />
       </FadeIn>
 
-      <FadeIn>
-        {/* Socials Component */}
-        <Socials />
-      </FadeIn>
 
       {/* Upload File Pop-up */}
       <UploadPopup isOpen={showUploadPopup} onClose={toggleUploadPopup} />

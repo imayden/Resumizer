@@ -37,9 +37,6 @@ const Setting = () => {
 
             </FadeIn>
 
-            <FadeIn>
-                <Socials />
-            </FadeIn>
         </Container>
     );
 };
