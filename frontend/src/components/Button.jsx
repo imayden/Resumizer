@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Button = ({ children, onClick, variant = "primary" }) => {
+const Button = ({ children, onClick, margin, variant = "primary" }) => {
   // Basic button styling
   const baseStyle = [
+    margin,
     "min-h-[96px]",
     "w-full",
     "px-8 py-6",

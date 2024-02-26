@@ -42,16 +42,14 @@ function Reuslt() {
 
           </div>
 
-          <div className="grid gap-x-4 gap-y-2 grid-cols-[1fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
+          <div className="grid gap-x-4 gap-y-8 grid-cols-[1fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto]">
             <Button
-              className="m-2"
               href="#"
               variant="primary">
 
               Export
             </Button>
             <Button
-              className="m-2"
               href="#"
               variant="secondary">
               Copy All
