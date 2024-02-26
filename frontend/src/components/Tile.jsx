@@ -4,6 +4,7 @@ import React from 'react';
 const Tile = ({
   children,
   padding = "px-12 py-10 max-md:p-8",
+  margin = "my-2 mx-2",
   items = "start",
   opacity = "bg-opacity-40",
   darkOpacity = "dark:bg-opacity-40",

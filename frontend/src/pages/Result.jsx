@@ -24,80 +24,74 @@ function Reuslt() {
     <Container id="result">
 
       {/* Title Line */}
-      <FadeIn>
+      <FadeIn className = "mb-2">
 
-        <div className="grid gap-x-2 gap-y-2 grid-cols-[0.4fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
-
-          {/* Title Tile */}
-          <div className="flex w-full max-w-[746px] flex-col items-start gap-x-8 gap-y-8 px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8 
-          bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
-          dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black " >
-
-            <div className="top-2">
-              <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
-                <span className="text-[#7F739F]">
-                  Text Here To Add Additional
-                  {" "}
-                </span>
-                <br />
-                Prompts
-              </h3>
-            </div>
-
-            <div className="bottom-2">
-              <InputField
-                className="min-h-[200px] rounded-2xl"
-                placeholder="Add additional prompts here. i.e, my target job is UX desginer ..."
-              />
-            </div>
-
-            <Button
-              href="#"
-              variant="primary">
-              Regenerate
-            </Button>
+        <Tile>
+          <div className="flex flex-col justify-center items-center">
+            <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
+              <span className="text-[#7F739F]">
+                Revised {" "}
+              </span>
+              Resume
+            </h3>
           </div>
 
-          {/* Action Tile */}
-          <div className="flex flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center p-12 rounded-3xl max-md:p-8 
-          bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
-          dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black " >
-
-            <div className="flex flex-col justify-center items-center mb-8 gap-3 max-md:mb-4">
-              <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
-                <span className="text-[#7F739F]">
-                  Revised {" "}
-                </span>
-                Resume
-              </h3>
-            </div>
-
-
-            <div className="flex w-full h-[1000px] flex-col items-start gap-x-8 gap-y-8  px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8
+          <div className="flex w-full inline-flex flex-col items-start gap-x-8 gap-y-8  px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8
             bg-opacity-20 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
             dark:bg-opacity-20 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black text-[#7F739F]" >
 
-              Result
-
-            </div>
-
-            <div className="grid gap-x-4 gap-y-2 grid-cols-[1fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
-              <Button
-                href="#"
-                variant="primary">
-                Export
-              </Button>
-              <Button
-                href="#"
-                variant="secondary">
-                Copy All
-              </Button>
-            </div>
-
+            Result
 
           </div>
 
-        </div>
+          <div className="grid gap-x-4 gap-y-2 grid-cols-[1fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
+            <Button
+              className="m-2"
+              href="#"
+              variant="primary">
+
+              Export
+            </Button>
+            <Button
+              className="m-2"
+              href="#"
+              variant="secondary">
+              Copy All
+            </Button>
+          </div>
+
+
+
+        </Tile>
+      </FadeIn>
+      <FadeIn>
+
+        <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center">
+          <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
+            <span className="text-[#7F739F]">
+              Text Here To Add Additional
+              {" "}
+            </span>
+            
+            Prompts
+          </h3>
+
+          <div>
+            <InputField
+              className="w-full"
+              rounded="rounded-3xl"
+              height="min-h-[200px]"
+              placeholder="Add additional prompts here. i.e, my target job is UX desginer ..."
+            />
+          </div>
+
+          <Button
+            href="#"
+            variant="primary">
+            Regenerate
+          </Button>
+        </Tile>
+
       </FadeIn>
 
       <div className="grid gap-x-2 gap-y-2 grid-cols-[1fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
@@ -123,7 +117,7 @@ function Reuslt() {
         </Tile>
 
         {/* Action Tile */}
-        <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center">
+        <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center ">
           <div>
             <h2 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
 
