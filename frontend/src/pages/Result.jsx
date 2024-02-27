@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import InputField from "../components/InputField";
 import Socials from "../components/Socials";
 import TextField from "../components/TextField";
+import UploadPopup from "../components/UploadPopup";
 
 
 function Reuslt() {
@@ -22,6 +23,9 @@ function Reuslt() {
 
   return (
     <Container id="result">
+
+     
+
 
       {/* Title Line */}
       <FadeIn className="mb-2">
@@ -91,58 +95,62 @@ function Reuslt() {
         </Tile>
       </FadeIn>
 
-      <div className="grid gap-x-2 gap-y-2 grid-cols-[1fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
+      <FadeIn>
+        <div className="grid gap-x-2 gap-y-2 grid-cols-[1fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
 
-        {/* Action Tile */}
-        <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center">
-          <div>
-            <h2 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
-              Upload <br />
-              <span className="text-[#7F739F]">
-                Resume {" "}
-              </span>
-            </h2>
-          </div>
+          {/* Action Tile */}
+          <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center">
+            <div>
+              <h2 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
+                Upload <br />
+                <span className="text-[#7F739F]">
+                  Resume {" "}
+                </span>
+              </h2>
+            </div>
 
-          {/* Upload File Button */}
-          <Button
-            onClick={toggleUploadPopup}
-            variant="primary">
-            Upload Now
-          </Button>
+            {/* Upload File Button */}
+            <Button
+              onClick={toggleUploadPopup}
+              variant="primary">
+              Upload Now
+            </Button>
 
-        </Tile>
+            
 
-        {/* Action Tile */}
-        <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center ">
-          <div>
-            <h2 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
+          </Tile>
 
-              Input <br />
-              <span className="text-[#7F739F]">
-                Resume {" "}
-              </span>
-            </h2>
-          </div>
+          {/* Action Tile */}
+          <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center ">
+            <div>
+              <h2 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
 
-          {/* Manual Input Button */}
-          <Button
-            href="#"
-            variant="primary">
-            Input Now
-          </Button>
-        </Tile>
+                Input <br />
+                <span className="text-[#7F739F]">
+                  Resume {" "}
+                </span>
+              </h2>
+            </div>
 
-
-      </div>
+            {/* Manual Input Button */}
+            <Button
+              href="#"
+              variant="primary">
+              Input Now
+            </Button>
+          </Tile>
+        </div>
+      </FadeIn>
 
       <FadeIn>
         {/* JobSpy Component */}
         <JobSpy />
       </FadeIn>
 
-      <Socials  
+      <Socials
       />
+      
+      <UploadPopup isOpen={showUploadPopup} onClose={toggleUploadPopup} />
 
     </Container>
   );
