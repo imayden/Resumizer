@@ -1,3 +1,5 @@
+// Completed
+
 import React, { useState, padding, useEffect } from 'react';
 
 function HeroSection({ images }) {

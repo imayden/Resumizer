@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Container from "../components/Container";
 import logo from "../assets/logo.svg";
 import { FadeIn } from "../components/FadeIn";
-import Socials from "../components/Socials";
 import UploadPopup from "../components/UploadPopup";
 import JobSpy from '../components/JobSpy';
 import HeroSection from "../components/HeroSection";

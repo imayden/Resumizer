@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Container from "../components/Container";
-import Socials from "../components/Socials";
 import { FadeIn } from "../components/FadeIn";
 import JobSpy from '../components/JobSpy';
 import Tile from "../components/Tile";
@@ -23,7 +22,7 @@ function Reuslt() {
     <Container id="result">
 
       {/* Title Line */}
-      <FadeIn className = "mb-2">
+      <FadeIn className="mb-2">
         <Tile>
           <div className="flex flex-col justify-center items-center">
             <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
@@ -68,7 +67,7 @@ function Reuslt() {
               Text Here To Add Additional
               {" "}
             </span>
-            
+
             Prompts
           </h3>
 
