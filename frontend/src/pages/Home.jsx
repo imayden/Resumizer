@@ -8,6 +8,7 @@ import HeroSection from "../components/HeroSection";
 import Tile from "../components/Tile";
 import Button from "../components/Button";
 import Socials from "../components/Socials";
+import InputPopUp from "../components/InputPopUp";
 
 // import images for hero section
 import image1 from "../assets/img1.png";
@@ -24,6 +25,15 @@ function Home() {
     setShowUploadPopup(!showUploadPopup);
   };
 
+
+  // The input pop-up display status - Default is not open
+  const [showInputPopup, setShowInputPopup] = useState(false);
+
+  // Toggle the input pop-up
+  const toggleInputPopup = () => {
+    setShowInputPopup(!showInputPopup);
+  };
+
   // Images with links
   const images = [
     { src: image1, alt: "image1", link: "/settings" },
@@ -38,7 +48,7 @@ function Home() {
 
       <FadeIn>
         <Tile padding="px-0 py-0" className="overflow-hidden" >
-        <HeroSection images={images} />
+          <HeroSection images={images} />
         </Tile>
       </FadeIn>
 
@@ -83,7 +93,8 @@ function Home() {
 
             {/* Manual Input Button */}
             <Button
-              href="#"
+              // href="#"
+              onClick={toggleInputPopup}
               variant="secondary">
               Input Now
             </Button>
@@ -93,19 +104,22 @@ function Home() {
       </FadeIn>
 
 
-      
+
 
       <FadeIn>
         {/* JobSpy Component */}
         <JobSpy />
       </FadeIn>
 
-      <Socials  
+      <Socials
       />
 
 
       {/* Upload File Pop-up */}
       <UploadPopup isOpen={showUploadPopup} onClose={toggleUploadPopup} />
+
+      {/* Input Manually Pop-up */}
+      <InputPopUp isOpen={showInputPopup} onClose={toggleInputPopup} />
 
     </Container>
   );

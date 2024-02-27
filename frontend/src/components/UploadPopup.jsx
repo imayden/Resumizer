@@ -141,7 +141,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
                     animate="visible"
                     exit="hidden"
 
-                    onClick={onClose} // 添加这行来处理点击背景关闭弹窗
+                    onClick={onClose} 
                     
                 >
                     <motion.div

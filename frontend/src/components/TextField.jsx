@@ -8,6 +8,7 @@ const TextField = ({
   className,
   width = "w-full",
   rounded = "rounded-full",
+  padding = "px-4 pt-4 max-md:pt-4 max-sm:pt-1",
   placeholder
 }) => {
   const baseStyle = [
@@ -15,6 +16,7 @@ const TextField = ({
     // height,
     width,
     rounded,
+    padding,
     "px-4 pt-4", 
     "max-md:pt-4",
     "max-sm:pt-1",

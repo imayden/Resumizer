@@ -8,6 +8,7 @@ import InputField from "../components/InputField";
 import Socials from "../components/Socials";
 import TextField from "../components/TextField";
 import UploadPopup from "../components/UploadPopup";
+import InputPopUp from "../components/InputPopUp";
 
 
 function Reuslt() {
@@ -20,11 +21,19 @@ function Reuslt() {
     setShowUploadPopup(!showUploadPopup);
   };
 
+  // The input pop-up display status - Default is not open
+  const [showInputPopup, setShowInputPopup] = useState(false);
+
+  // Toggle the input pop-up
+  const toggleInputPopup = () => {
+    setShowInputPopup(!showInputPopup);
+  };
+
 
   return (
     <Container id="result">
 
-     
+
 
 
       {/* Title Line */}
@@ -116,7 +125,7 @@ function Reuslt() {
               Upload Now
             </Button>
 
-            
+
 
           </Tile>
 
@@ -132,12 +141,15 @@ function Reuslt() {
               </h2>
             </div>
 
-            {/* Manual Input Button */}
-            <Button
-              href="#"
+             {/* Manual Input Button */}
+             <Button
+              // href="#"
+              onClick={toggleInputPopup}
               variant="primary">
               Input Now
             </Button>
+
+
           </Tile>
         </div>
       </FadeIn>
@@ -149,8 +161,11 @@ function Reuslt() {
 
       <Socials
       />
-      
+
       <UploadPopup isOpen={showUploadPopup} onClose={toggleUploadPopup} />
+
+       {/* Input Manually Pop-up */}
+       <InputPopUp isOpen={showInputPopup} onClose={toggleInputPopup} />
 
     </Container>
   );
