@@ -36,6 +36,11 @@ _**Setup**_
 5. Open `http://localhost:5173` in your browser
 
 #### Use `npm`
+1. Clone the repository
+2. Type `cd frontend` in terminal
+3. Install the dependencies by running `npm install` (NodeJS is a prerequisite). 
+4. Start the development server by running `npm run dev` (if you want to build, use `npm run build` in `/frontend` and the built file will be in the `/frontend/dist` directory)
+5. Open `http://localhost:5173` in your browser
 
 ## Back-end
 ### Job Server
