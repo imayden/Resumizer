@@ -21,10 +21,10 @@ export function FadeIn(props) {
       {...(isInStaggerGroup
         ? {}
         : {
-            initial: "hidden",
-            whileInView: "visible",
-            viewport,
-          })}
+          initial: "hidden",
+          whileInView: "visible",
+          viewport,
+        })}
       {...props}
     />
   );

@@ -7,6 +7,7 @@ import JobSpy from '../components/JobSpy';
 import HeroSection from "../components/HeroSection";
 import Tile from "../components/Tile";
 import Button from "../components/Button";
+import Socials from "../components/Socials";
 
 // import images for hero section
 import image1 from "../assets/img1.png";
@@ -98,6 +99,9 @@ function Home() {
         {/* JobSpy Component */}
         <JobSpy />
       </FadeIn>
+
+      <Socials  
+      />
 
 
       {/* Upload File Pop-up */}
