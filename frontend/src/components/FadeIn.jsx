@@ -1,3 +1,5 @@
+// Completed
+
 import { createContext, useContext } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -19,10 +21,10 @@ export function FadeIn(props) {
       {...(isInStaggerGroup
         ? {}
         : {
-            initial: "hidden",
-            whileInView: "visible",
-            viewport,
-          })}
+          initial: "hidden",
+          whileInView: "visible",
+          viewport,
+        })}
       {...props}
     />
   );

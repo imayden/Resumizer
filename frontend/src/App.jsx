@@ -22,7 +22,9 @@ function App() {
           {/* More page routes below */}
         </Routes>
 
-        <Footer />
+        <Footer
+         style={{ zIndex: -1 }}
+        />
       </div>
     </Router>
   );

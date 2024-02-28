@@ -1,89 +1,171 @@
 import React, { useState } from "react";
 import Container from "../components/Container";
-import logo from "../assets/logo.svg";
-import Socials from "../components/Socials";
 import { FadeIn } from "../components/FadeIn";
 import JobSpy from '../components/JobSpy';
+import Tile from "../components/Tile";
+import Button from "../components/Button";
+import InputField from "../components/InputField";
+import Socials from "../components/Socials";
+import TextField from "../components/TextField";
+import UploadPopup from "../components/UploadPopup";
+import InputPopUp from "../components/InputPopUp";
 
 
 function Reuslt() {
+
+  // The upload pop-up display status - Default is not open
+  const [showUploadPopup, setShowUploadPopup] = useState(false);
+
+  // Toggle the upload pop-up
+  const toggleUploadPopup = () => {
+    setShowUploadPopup(!showUploadPopup);
+  };
+
+  // The input pop-up display status - Default is not open
+  const [showInputPopup, setShowInputPopup] = useState(false);
+
+  // Toggle the input pop-up
+  const toggleInputPopup = () => {
+    setShowInputPopup(!showInputPopup);
+  };
+
+
   return (
     <Container id="result">
 
+
+
+
       {/* Title Line */}
-      <FadeIn>
-
-        <div className="grid gap-x-2 gap-y-2 grid-cols-[0.4fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
-
-          {/* Title Tile */}
-          <div className="flex w-full max-w-[746px] flex-col items-start gap-x-8 gap-y-8 px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8 
-          bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
-          dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black " >
-            <img
-              src={logo}
-              alt="logo"
-              className="overflow-hidden w-[108px] h-[108px] flex-[0_0_auto] rounded-full"
-              // dark:ring-black dark:ring-opacity-10 dark:ring-[2px]"
-            />
-            <h1 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
-              Result
-              <br />
-              Page
-              {" "}<br />
+      <FadeIn className="mb-2">
+        <Tile>
+          <div className="flex flex-col justify-center items-center">
+            <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
               <span className="text-[#7F739F]">
-                {" "}
-                Is Here.
+                Revised {" "}
               </span>
-            </h1>
+              Resume
+            </h3>
           </div>
 
-          {/* Action Tile */}
-          <div className="flex flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center p-12 rounded-3xl max-md:p-8 
-          bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
-          dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black " >
-
-            <div className="flex flex-col justify-center items-center mb-8 gap-3 max-md:mb-4">
-              <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
-                <span className="text-[#7F739F]">
-                 Revised {" "}
-                </span>
-                Resume
-              </h3>
-            </div>
-
-
-            <div className="flex w-full h-[1000px] flex-col items-start gap-x-8 gap-y-8  px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8
+          <div className="flex w-full inline-flex flex-col items-start gap-x-8 gap-y-8  px-12 py-10 rounded-3xl max-mdd:max-w-none max-md:p-8
             bg-opacity-20 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
             dark:bg-opacity-20 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black text-[#7F739F]" >
 
-                Result
-              
-            </div>
-
-
-            <button
-              className="min-h-[96px] transition-[background-color] duration-300 ease-[ease-out] text-[28px] leading-[48px] font-medium text-center tracking-[-0.01em] px-8 py-6 rounded-[99px] max-md:min-h-[80px] max-md:text-2xl max-md:leading-8 text-white bg-[#4F0ED1] hover:bg-[#6D49FE] "
-              >
-              Export
-              <span className=" animate-pulse"></span>
-            </button>
+            Result
 
           </div>
 
-        </div>
+          <div className="grid gap-x-4 gap-y-8 grid-cols-[1fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto]">
+            <Button
+              href="#"
+              variant="primary">
+
+              Export
+            </Button>
+            <Button
+              href="#"
+              variant="secondary">
+              Copy All
+            </Button>
+          </div>
+
+
+
+        </Tile>
       </FadeIn>
 
-      
       <FadeIn>
-        {/* Socials Component */}
-        <Socials />
+        <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center">
+          <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
+            <span className="text-[#7F739F]">
+              Text Here To Add Additional
+              {" "}
+            </span>
+
+            Prompts
+          </h3>
+
+          {/* InputFiled for additional prompts */}
+          <div>
+            <TextField
+              className="w-full"
+              rounded="rounded-3xl"
+              // height="min-h-[200px]"
+              placeholder="Add additional prompts here. i.e, my target job is UX desginer ..."
+            />
+          </div>
+
+          <Button
+            href="#"
+            variant="primary">
+            Regenerate
+          </Button>
+        </Tile>
+      </FadeIn>
+
+      <FadeIn>
+        <div className="grid gap-x-2 gap-y-2 grid-cols-[1fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
+
+          {/* Action Tile */}
+          <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center">
+            <div>
+              <h2 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
+                Upload <br />
+                <span className="text-[#7F739F]">
+                  Resume {" "}
+                </span>
+              </h2>
+            </div>
+
+            {/* Upload File Button */}
+            <Button
+              onClick={toggleUploadPopup}
+              variant="primary">
+              Upload Now
+            </Button>
+
+
+
+          </Tile>
+
+          {/* Action Tile */}
+          <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center ">
+            <div>
+              <h2 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
+
+                Input <br />
+                <span className="text-[#7F739F]">
+                  Resume {" "}
+                </span>
+              </h2>
+            </div>
+
+            {/* Manual Input Button */}
+            <Button
+              // href="#"
+              onClick={toggleInputPopup}
+              variant="primary">
+              Input Now
+            </Button>
+
+
+          </Tile>
+        </div>
       </FadeIn>
 
       <FadeIn>
         {/* JobSpy Component */}
-        <JobSpy/> 
+        <JobSpy />
       </FadeIn>
 
+      <Socials
+      />
+
+      <UploadPopup isOpen={showUploadPopup} onClose={toggleUploadPopup} />
+
+      {/* Input Manually Pop-up */}
+      <InputPopUp isOpen={showInputPopup} onClose={toggleInputPopup} />
 
     </Container>
   );

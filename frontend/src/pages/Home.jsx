@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import Container from "../components/Container";
 import logo from "../assets/logo.svg";
 import { FadeIn } from "../components/FadeIn";
-import Socials from "../components/Socials";
 import UploadPopup from "../components/UploadPopup";
 import JobSpy from '../components/JobSpy';
 import HeroSection from "../components/HeroSection";
 import Tile from "../components/Tile";
 import Button from "../components/Button";
+import Socials from "../components/Socials";
+import InputPopUp from "../components/InputPopUp";
 
 // import images for hero section
-import image1 from "../assets/img1.gif";
-import image2 from "../assets/img2.gif";
-import image3 from "../assets/img3.gif";
+import image1 from "../assets/img1.png";
+import image2 from "../assets/img2.png";
+import image3 from "../assets/img3.png";
 
 function Home() {
 
@@ -24,11 +25,20 @@ function Home() {
     setShowUploadPopup(!showUploadPopup);
   };
 
+
+  // The input pop-up display status - Default is not open
+  const [showInputPopup, setShowInputPopup] = useState(false);
+
+  // Toggle the input pop-up
+  const toggleInputPopup = () => {
+    setShowInputPopup(!showInputPopup);
+  };
+
   // Images with links
   const images = [
-    { src: image1, alt: "image1", link: "https://www.pinterest.com/pin/422916221269288864/" },
-    { src: image2, alt: "image2", link: "https://www.pinterest.com/pin/800303796313230970/" },
-    { src: image3, alt: "image3", link: "https://www.pinterest.com/pin/3448137206502136/" },
+    { src: image1, alt: "image1", link: "/settings" },
+    { src: image2, alt: "image2", link: "/result" },
+    { src: image3, alt: "image3", link: "/settings" },
   ];
 
   return (
@@ -38,7 +48,7 @@ function Home() {
 
       <FadeIn>
         <Tile padding="px-0 py-0" className="overflow-hidden" >
-        <HeroSection images={images} />
+          <HeroSection images={images} />
         </Tile>
       </FadeIn>
 
@@ -46,8 +56,6 @@ function Home() {
 
       {/* Title Line */}
       <FadeIn>
-        {/* Hero Section */}
-          <HeroSection />
 
         <div className="grid gap-x-2 gap-y-2 grid-cols-[1fr_0.7fr] max-mdd:grid-cols-[1fr] grid-rows-[auto] my-2">
 
@@ -85,7 +93,8 @@ function Home() {
 
             {/* Manual Input Button */}
             <Button
-              href="#"
+              // href="#"
+              onClick={toggleInputPopup}
               variant="secondary">
               Input Now
             </Button>
@@ -95,18 +104,22 @@ function Home() {
       </FadeIn>
 
 
-      <FadeIn>
-        {/* Socials Component */}
-        <Socials />
-      </FadeIn>
+
 
       <FadeIn>
         {/* JobSpy Component */}
         <JobSpy />
       </FadeIn>
 
+      <Socials
+      />
+
+
       {/* Upload File Pop-up */}
       <UploadPopup isOpen={showUploadPopup} onClose={toggleUploadPopup} />
+
+      {/* Input Manually Pop-up */}
+      <InputPopUp isOpen={showInputPopup} onClose={toggleInputPopup} />
 
     </Container>
   );

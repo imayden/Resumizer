@@ -3,35 +3,44 @@
 import React from 'react';
 import { FadeIn } from "../components/FadeIn";
 import Container from '../components/Container';
+import Button from '../components/Button';
+import Tile from '../components/Tile';
+import InputField from '../components/InputField';
+import Socials from '../components/Socials';
 
 const Setting = () => {
     return (
-       <Container id="settings">
-        <FadeIn>
-            <div className="flex justify-center items-center h-screen">
-                <div className="bg-black bg-opacity-40 backdrop-blur-xl shadow-lg rounded-3xl p-8 max-w-lg w-full m-4">
-                    <div className="p-4">
-                        <h1 className="text-3xl font-bold mb-6 text-center text-white">Settings</h1>
-                        <form>
-                            <div className="mb-6">
-                                <label htmlFor="api-key" className="block mb-2 text-sm font-medium text-gray-300">API Key:</label>
-                                <input
-                                type="text"
-                                id="api-key"
-                                className="bg-gray-700 bg-opacity-50 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                />
-                            </div>
-                            <div className="flex justify-center">
-                                <button type="submit" className="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                                Save
-                                </button>
-                            </div>
-                            </form>
+        <Container id="settings">
+            <FadeIn>
+
+                <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center">
+                    <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
+                        <span className="text-[#7F739F]">
+                            Update And Save Your
+                            {" "}
+                        </span>
+                        OpenAI API Key
+                    </h3>
+
+                    <div>
+                        <InputField
+                            placeholder="Paste your OpenAI API Key here and save ..."
+                        />
                     </div>
-                </div>
-            </div>
-        </FadeIn>
-       </Container>
+
+                    <Button
+                        href="#"
+                        variant="primary">
+                        Save
+                    </Button>
+                </Tile>
+
+            </FadeIn>
+
+            <Socials  
+      />
+
+        </Container>
     );
 };
 

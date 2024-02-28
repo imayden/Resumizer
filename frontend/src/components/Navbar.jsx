@@ -20,10 +20,10 @@ const navlinkes = [
     link: "/result",
   },
 
-  {
-    name: "setting.",
-    link: "/setting",
-  },
+  // {
+  //   name: "contact.",
+  //   link: "/contact",
+  // },
 ];
 
 // Define the Navbar component
@@ -88,10 +88,12 @@ function Navbar() {
         </div>
 
         {/* Mobile view, bottom-fixed navigation bar */}
-        <div className="flex w-full justify-center items-center sm:hidden fixed top-0 z-50">
-          <div className="flex justify-around items-center gap-x-8 gap-y-8 max-w-[1240px] bg-opacity-30 text-[#4F0ED1] dark:text-white px-8 py-4 rounded-full fixed bottom-5 mx-auto 
-          bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white shadow-sm
-          dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-[1px] dark:border-opacity-5 dark:bg-black dark:shadow-lg " >
+        <div className="flex left-[10%] w-[80%] justify-center items-center sm:hidden fixed top-0 z-50">
+          <div className="
+            flex justify-around items-center gap-x-8 gap-y-8 max-w-[1240px] bg-opacity-50 
+            text-[#4F0ED1] dark:text-white px-8 py-4 rounded-full fixed bottom-5 mx-auto 
+            bg-opacity-40 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white shadow-sm
+            dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-[1px] dark:border-opacity-5 dark:bg-black dark:shadow-lg " >
             {navlinkes.map((navlink) => (
               // Dynamically generate each navigation link 
               <Link
