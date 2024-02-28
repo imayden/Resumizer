@@ -17,16 +17,16 @@ const InputPopUp = ({ isOpen, onClose }) => {
 
 
 
-    // 定义状态来保存每个TextField的输入值
+    //Define TextField input value
     const [personalInfo, setPersonalInfo] = useState("");
     const [targetJobTitles, setTargetJobTitles] = useState("");
     const [educationalBackground, setEducationalBackground] = useState("");
     const [professionalExperience, setProfessionalExperience] = useState("");
     const [additionalPrompts, setAdditionalPrompts] = useState("");
 
-    // 处理提交表单
+    // Submit form
     const handleSubmit = async () => {
-        // 组合所有输入数据
+        // Combine input data
         const resumeData = {
             personalInfo,
             professionalExperience,
@@ -34,7 +34,7 @@ const InputPopUp = ({ isOpen, onClose }) => {
         };
 
         try {
-            // 发送数据到后端接口
+            // Send date to backend
             const response = await fetch('RESUME_SERVER_ENDPOINT', {
                 method: 'POST',
                 headers: {
@@ -46,7 +46,7 @@ const InputPopUp = ({ isOpen, onClose }) => {
             const result = await response.json();
             if (response.ok) {
                 console.log("Resume generated successfully:", result);
-                onClose(); // 可选：提交后关闭弹窗
+                window.open('/result', '_blank'); // Replace here with real result url
             } else {
                 console.error("Failed to generate resume:", result);
             }

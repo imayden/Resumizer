@@ -11,34 +11,31 @@ const UploadPopup = ({ isOpen, onClose }) => {
 
     useEffect(() => {
         if (isOpen) {
-          document.body.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
         } else {
-          document.body.style.overflow = '';
+            document.body.style.overflow = '';
         }
-      }, [isOpen]);
+    }, [isOpen]);
 
-      
+
 
     const [file, setFile] = useState(""); // Save uploaded file
     const [fileName, setFileName] = useState(""); // Save uploaded file name
     const [jobTitle, setJobTitle] = useState("");
     const [uploadStatus, setUploadStatus] = useState(""); // "Save upload status"
-
-
     // Create a ref to index the input file
     const fileInputRef = useRef(null);
-
-
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         // Check the type and size of the selected file
         if (
             selectedFile &&
-            (selectedFile.type === "application/pdf" ||
-                selectedFile.type === "application/msword" ||
-                selectedFile.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document") &&
-            selectedFile.size <= 4 * 1024 * 1024
+            (selectedFile.type === "application/pdf" || // PDF Document
+                selectedFile.type === "application/msword" || // Old Microsoft Word Document (.doc)
+                selectedFile.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" // Comtemporaty Microsoft Word Document (.docx)
+            ) &&
+            selectedFile.size <= 4 * 1024 * 1024 // Less than 4 MB
         ) {
             setFile(selectedFile);
             setFileName(selectedFile.name); // Update the file name
@@ -101,9 +98,13 @@ const UploadPopup = ({ isOpen, onClose }) => {
         } catch (error) {
             console.error("Error uploading file:", error);
         }
-
-
     };
+    /* 
+            **************************************************************************************
+            Fetch the date from the server
+            **************************************************************************************
+        */
+
 
     if (!isOpen) return null;
 
@@ -141,8 +142,8 @@ const UploadPopup = ({ isOpen, onClose }) => {
                     animate="visible"
                     exit="hidden"
 
-                    onClick={onClose} 
-                    
+                    onClick={onClose}
+
                 >
                     <motion.div
                         onClick={(event) => event.stopPropagation()}
@@ -221,8 +222,6 @@ const UploadPopup = ({ isOpen, onClose }) => {
                                 Confirm
                             </Button>
                         </FadeIn>
-
-                        {/* More components here */}
 
                     </motion.div>
                 </motion.div>

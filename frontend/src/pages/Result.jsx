@@ -141,8 +141,8 @@ function Reuslt() {
               </h2>
             </div>
 
-             {/* Manual Input Button */}
-             <Button
+            {/* Manual Input Button */}
+            <Button
               // href="#"
               onClick={toggleInputPopup}
               variant="primary">
@@ -164,8 +164,8 @@ function Reuslt() {
 
       <UploadPopup isOpen={showUploadPopup} onClose={toggleUploadPopup} />
 
-       {/* Input Manually Pop-up */}
-       <InputPopUp isOpen={showInputPopup} onClose={toggleInputPopup} />
+      {/* Input Manually Pop-up */}
+      <InputPopUp isOpen={showInputPopup} onClose={toggleInputPopup} />
 
     </Container>
   );
