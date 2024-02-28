@@ -19,8 +19,6 @@ const InputPopUp = ({ isOpen, onClose }) => {
 
     //Define TextField input value
     const [personalInfo, setPersonalInfo] = useState("");
-    const [targetJobTitles, setTargetJobTitles] = useState("");
-    const [educationalBackground, setEducationalBackground] = useState("");
     const [professionalExperience, setProfessionalExperience] = useState("");
     const [additionalPrompts, setAdditionalPrompts] = useState("");
 
