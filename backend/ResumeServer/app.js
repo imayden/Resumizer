@@ -23,6 +23,7 @@ app.use('/', indexRouter);
 // Use CORS middleware to allow all origins
 app.use(cors());
 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
