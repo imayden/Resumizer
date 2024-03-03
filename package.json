@@ -1,6 +1,13 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^1.6.7",
+=======
+    "mammoth": "^1.7.0",
+    "pdfjs": "^2.5.3",
+    "pdfjs-dist": "^4.0.379",
+    "react-pdftotext": "^1.1.1",
+>>>>>>> f20604c015f6689b50cb41ac71f05538d8a3cfd4
     "react-router-dom": "^6.22.0"
   }
 }

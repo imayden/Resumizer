@@ -22,6 +22,7 @@ const InputPopUp = ({ isOpen, onClose }) => {
     const [professionalExperience, setProfessionalExperience] = useState("");
     const [additionalPrompts, setAdditionalPrompts] = useState("");
 
+    /* ---------------------OLD VERSION--------------------------
     // Submit form
     const handleSubmit = async () => {
         // Combine input data
@@ -52,6 +53,47 @@ const InputPopUp = ({ isOpen, onClose }) => {
             console.error("Error submitting resume data:", error);
         }
     };
+    */
+
+    // Submit form
+    const handleSubmit = async () => {
+        console.log({ personalInfo, professionalExperience, additionalPrompts });
+
+        // Perform client-side validation of input fields here
+        if (!personalInfo.trim() || !professionalExperience.trim() || !additionalPrompts.trim()) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        // Create an object with the data you want to send
+        const resumeData = {
+            personalInfo,
+            professionalExperience,
+            additionalPrompts,
+        };
+
+        try {
+            // Send data to backend
+            const response = await fetch('https://tiny-teal-swordfish-cap.cyclic.app', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(resumeData), // Sending the data as JSON
+            });
+    
+            const result = await response.json();
+            if (response.ok) {
+                console.log("Resume generated successfully:", result);
+                window.open('/result', '_blank'); // Replace here with real result url
+            } else {
+                console.error("Failed to generate resume:", result);
+            }
+        } catch (error) {
+            console.error("Error submitting resume data:", error);
+        }
+    };
+
 
     if (!isOpen) return null;
 
@@ -107,16 +149,19 @@ const InputPopUp = ({ isOpen, onClose }) => {
                         exit="hidden"
                     >
                         <FadeIn>
-                            <div className="flex justify-end mt-4">
-                                <Button onClick={handleSubmit}>Submit</Button>
-                            </div>
-
-                            <div className="min-w-[80vw] ">
+                             <div className="min-w-[80vw] ">
                                 <h4 className="my-4 opacity-50">Personal Information</h4>
                                 <TextField padding="px-4 py-2" rounded="rounded-3xl" title="Personal Information" placeholder="Text your name, contacts, target job, educational background, experience and other essential information here ... " value={personalInfo} onChange={(e) => setPersonalInfo(e.target.value)} />
 
+                                <h4 className="my-4 opacity-50">Professional Experience</h4>
+                                <TextField padding="px-4 py-0" rounded="rounded-3xl" title="Professional Experience" placeholder="Text your professional experience or educational background here ... " value={professionalExperience} onChange={(e) => setProfessionalExperience (e.target.value)} />
+
                                 <h4 className="my-4 opacity-50">Additional Prompts</h4>
                                 <TextField padding="px-4 py-0" rounded="rounded-3xl" title="Additional Prompts" placeholder="Text your additional prompts here, i.e., generate my resume in Spanish or paste the job description of your target job ... " value={additionalPrompts} onChange={(e) => setAdditionalPrompts(e.target.value)} />
+                            </div>
+
+                            <div className="flex justify-end mt-4">
+                                <Button onClick={handleSubmit}>Submit</Button>
                             </div>
 
                         </FadeIn>

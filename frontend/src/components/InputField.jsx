@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputField = ({ name, value, onChange, height = "min-h-[96px]", className, width = "w-full", rounded = "rounded-full", placeholder }) => {
+const InputField = ({ name, value, onChange, onBlur, height = "min-h-[96px]", className, width = "w-full", rounded = "rounded-full", placeholder }) => {
   const baseStyle = [
     // Input specific styling
     className,
@@ -28,6 +28,7 @@ const InputField = ({ name, value, onChange, height = "min-h-[96px]", className,
       name={name}
       value={value}
       onChange={onChange}
+      onBlur={onBlur}
       placeholder={placeholder}
       required
     />
