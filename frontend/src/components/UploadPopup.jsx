@@ -6,6 +6,7 @@ import InputField from "./InputField";
 import Button from "./Button";
 import pdfToText from 'react-pdftotext'
 
+
 const UploadPopup = ({ isOpen, onClose }) => {
     useEffect(() => {
         if (isOpen) {
@@ -21,8 +22,8 @@ const UploadPopup = ({ isOpen, onClose }) => {
     const [uploadStatus, setUploadStatus] = useState(""); // "Save upload status"
     const [parsedText, setParsedText] = useState(""); // Save parsed pdf text
     const fileInputRef = useRef(null); // Create a ref to index the input file
-    
-    
+    const [conbinedPrompts, setConbinedPrompts] = useState("");
+
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
@@ -45,7 +46,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
             //     console.log("File Parsed Successfully: " + text);
             pdfToText(selectedFile).then(text => {
                 console.log("File Parsed Successfully: " + text);
-                setParsedText(text); 
+                setParsedText(text);
             }).catch(error => console.error("Failed to extract text from pdf"));
         } else {
             // alert("Invalid file. Please select a PDF or Word document less than 4MB.");
@@ -65,6 +66,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
             Please Refine My Resume Refer To My Target Job In A Professional Way: ${parsedText}
             PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT AND PUT THE RESULTS IN A CODE BLOCK FORMATTED IN MARKDOWN GRAMMAR!
             `;
+        setConbinedPrompts(conbinedPrompts);
         console.log(conbinedPrompts);
     };
 
@@ -124,6 +126,13 @@ const UploadPopup = ({ isOpen, onClose }) => {
             **************************************************************************************
         */
     };
+
+
+
+
+
+
+
 
 
 
@@ -232,7 +241,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
                                 placeholder="Enter target jobs here (Optional)"
                                 value={jobTitle}
                                 onChange={handleJobTitleChange}
-                                onBlur={handleJobTitleBlur} 
+                                onBlur={handleJobTitleBlur}
                             />
 
                             <br />
