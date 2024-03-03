@@ -1,14 +1,12 @@
+
 import React, { useState, useRef, useEffect } from "react";
-import Socials from "./Socials";
 import { FadeIn } from "./FadeIn";
 import { AnimatePresence, motion } from "framer-motion";
 import InputField from "./InputField";
 import Button from "./Button";
-
+import pdfToText from 'react-pdftotext'
 
 const UploadPopup = ({ isOpen, onClose }) => {
-
-
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -17,31 +15,41 @@ const UploadPopup = ({ isOpen, onClose }) => {
         }
     }, [isOpen]);
 
-
-
     const [file, setFile] = useState(""); // Save uploaded file
-    const [fileName, setFileName] = useState(""); // Save uploaded file name
+    const [fileName, setFileName] = useState(""); // Save uploaded file name to present
     const [jobTitle, setJobTitle] = useState("");
     const [uploadStatus, setUploadStatus] = useState(""); // "Save upload status"
-    // Create a ref to index the input file
-    const fileInputRef = useRef(null);
+    const [parsedText, setParsedText] = useState(""); // Save parsed pdf text
+    const fileInputRef = useRef(null); // Create a ref to index the input file
+    
+    
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         // Check the type and size of the selected file
         if (
             selectedFile &&
-            (selectedFile.type === "application/pdf" || // PDF Document
-                selectedFile.type === "application/msword" || // Old Microsoft Word Document (.doc)
-                selectedFile.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" // Comtemporaty Microsoft Word Document (.docx)
+            (selectedFile.type === "application/pdf" // PDF Document
+                // || 
+                // selectedFile.type === "application/msword" // Old Microsoft Word Document (.doc)
+                // || 
+                // selectedFile.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" // Comtemporaty Microsoft Word Document (.docx)
             ) &&
             selectedFile.size <= 4 * 1024 * 1024 // Less than 4 MB
         ) {
             setFile(selectedFile);
             setFileName(selectedFile.name); // Update the file name
             setUploadStatus(`${selectedFile.name} Uploaded`); // Update the upload status
+            console.log("File uploaded successfully");
+            // pdfToText(selectedFile).then(text => {
+            //     console.log("File Parsed Successfully: " + text);
+            pdfToText(selectedFile).then(text => {
+                console.log("File Parsed Successfully: " + text);
+                setParsedText(text); 
+            }).catch(error => console.error("Failed to extract text from pdf"));
         } else {
-            alert("Invalid file. Please select a PDF or Word document less than 4MB.");
+            // alert("Invalid file. Please select a PDF or Word document less than 4MB.");
+            alert("Invalid file. Please select a PDF document less than 4MB.");
             setFile(null); // Clear the selected file
             setFileName(""); // Clear the file name
             setUploadStatus(""); // Clear the upload status
@@ -52,8 +60,13 @@ const UploadPopup = ({ isOpen, onClose }) => {
         setJobTitle(e.target.value);
     };
 
-    // const handleConfirmClick = () => {
-    // window.open('/result', '_blank');
+    const handleJobTitleBlur = () => {
+        const conbinedPrompts = `My Target Job Is: ${jobTitle}. 
+            Please Refine My Resume Refer To My Target Job In A Professional Way: ${parsedText}
+            PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT AND PUT THE RESULTS IN A CODE BLOCK FORMATTED IN MARKDOWN GRAMMAR!
+            `;
+        console.log(conbinedPrompts);
+    };
 
     const handleConfirmClick = async () => {
         if (!file) {
@@ -63,9 +76,12 @@ const UploadPopup = ({ isOpen, onClose }) => {
 
         // Create a FormData object to send uploaded file and jobTitle
         const formData = new FormData();
-        formData.append("file", file);
+        // formData.append("file", file);
+        formData.append("resume", file);
         formData.append("jobTitle", jobTitle);
 
+        const openAIKey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
+        formData.append("openApiKey", openAIKey); 
 
         /* 
             **************************************************************************************
@@ -74,7 +90,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
         */
         try {
             // Send request to server to detect and parse the file content
-            const response = await fetch('BACKEND_FILE_PARSE_ENDPOINT', {
+            const response = await fetch('https://tiny-teal-swordfish-cap.cyclic.app', {
                 method: 'POST',
                 body: formData,
             });
@@ -88,7 +104,10 @@ const UploadPopup = ({ isOpen, onClose }) => {
                 setUploadStatus("");
 
                 // Handle the result
+                console.log("Resume generated successfully:");
+                console.log("============================================================");
                 console.log(result);
+                console.log("============================================================");
                 window.open('/result', '_blank'); // Replace here with real result url
             } else {
                 // Handle Error
@@ -96,14 +115,16 @@ const UploadPopup = ({ isOpen, onClose }) => {
             }
 
         } catch (error) {
-            console.error("Error uploading file:", error);
+            console.error("Error fetching data:", error);
         }
-    };
-    /* 
+
+        /* 
             **************************************************************************************
-            Fetch the date from the server
+            Fetch the data from the server
             **************************************************************************************
         */
+    };
+
 
 
     if (!isOpen) return null;
@@ -211,6 +232,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
                                 placeholder="Enter target jobs here (Optional)"
                                 value={jobTitle}
                                 onChange={handleJobTitleChange}
+                                onBlur={handleJobTitleBlur} 
                             />
 
                             <br />
