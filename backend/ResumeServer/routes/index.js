@@ -46,7 +46,7 @@ router.post('/', upload.single('resume'), async (req, res, next) => {
       temperature: 0.3,
       top_p: 1
     });
-    res.status(200).send(completion.choices[0]?.message?.content);
+    res.status(200).json({content:completion.choices[0]?.message?.content});
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Failed to parse PDF file. Please check the file and try again' });
