@@ -82,8 +82,10 @@ const UploadPopup = ({ isOpen, onClose }) => {
         formData.append("resume", file);
         formData.append("jobTitle", jobTitle);
 
-        const openAIKey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
-        formData.append("openApiKey", openAIKey); 
+        const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
+        // const openAIkey = "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"
+        console.log("openAIkey: " + openAIkey);
+        formData.append("openAIkey", openAIkey); 
 
         /* 
             **************************************************************************************
@@ -93,6 +95,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
         try {
             // Send request to server to detect and parse the file content
             const response = await fetch('https://tiny-teal-swordfish-cap.cyclic.app', {
+            // const response = await fetch('http://localhost:3000', {
                 method: 'POST',
                 body: formData,
             });
