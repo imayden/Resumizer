@@ -105,6 +105,18 @@ Result: The new content of the resume.
 ```
 ![Screenshot 2024-02-13 at 7 15 36 PM](https://github.com/imayden/Resumizer/assets/34488386/288ecc35-b86c-4ab8-a63f-2823fae2377e)
 
+```yml
+POST - https://tiny-teal-swordfish-cap.cyclic.app/prompt
+
+Body(JSON): 
+- prompt (text)
+- openAIkey (text) 
+
+Result: The new content of the resume.
+```
+![Screenshot 2024-03-05 at 5 38 31 AM](https://github.com/imayden/Resumizer/assets/34488386/37df4529-0ac2-49b9-837a-d76aa8e69def)
+
+
 
 ## Database
 * TBD
