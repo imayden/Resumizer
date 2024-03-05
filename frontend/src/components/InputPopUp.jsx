@@ -18,68 +18,41 @@ const InputPopUp = ({ isOpen, onClose }) => {
 
 
     //Define TextField input value
-    const [personalInfo, setPersonalInfo] = useState("");
+    const [fullName, setFullName] = useState("");
+    const [jobTitle, setJobTitle] = useState("");
+    const [contactInfo, setContactInfo] = useState("");
     const [professionalExperience, setProfessionalExperience] = useState("");
+    //const [skills, setSkills] = useState("");
     const [additionalPrompts, setAdditionalPrompts] = useState("");
 
-    /* ---------------------OLD VERSION--------------------------
     // Submit form
     const handleSubmit = async () => {
-        // Combine input data
-        const resumeData = {
-            personalInfo,
-            professionalExperience,
-            additionalPrompts,
-        };
-
-        try {
-            // Send date to backend
-            const response = await fetch('RESUME_SERVER_ENDPOINT', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(resumeData),
-            });
-
-            const result = await response.json();
-            if (response.ok) {
-                console.log("Resume generated successfully:", result);
-                window.open('/result', '_blank'); // Replace here with real result url
-            } else {
-                console.error("Failed to generate resume:", result);
-            }
-        } catch (error) {
-            console.error("Error submitting resume data:", error);
-        }
-    };
-    */
-
-    // Submit form
-    const handleSubmit = async () => {
-        console.log({ personalInfo, professionalExperience, additionalPrompts });
+        console.log({ fullName, jobTitle, contactInfo, professionalExperience,  additionalPrompts});
 
         // Perform client-side validation of input fields here
-        if (!personalInfo.trim() || !professionalExperience.trim() || !additionalPrompts.trim()) {
+        if (!fullName.trim() || !jobTitle.trim() || !contactInfo.trim() ||!professionalExperience.trim()) {
             alert('Please fill in all required fields.');
             return;
         }
 
-        // Create an object with the data you want to send
-        const resumeData = {
-            personalInfo,
-            professionalExperience,
-            additionalPrompts,
-        };
+        // Construct the prompt using the input data
+        const prompt = `Please make a new resume referring to my target job in a professional way. 
+            My name is ${fullName} and my contact information is ${contactInfo}. 
+            ${jobTitle} is my target job. I have some professional experiences in ${professionalExperience}.
+            Also include this ${additionalPrompts} as additional information. 
+            PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT AND PUT THE RESULTS IN A CODE BLOCK FORMATTED IN MARKDOWN GRAMMAR!`;
+
+        // Replace 'YOUR_OPENAI_KEY_HERE' with your actual OpenAI key
+        const openAIkey = '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';    
 
         try {
             // Send data to backend
-            const response = await fetch('https://tiny-teal-swordfish-cap.cyclic.app', {
+            const response = await fetch('https://tiny-teal-swordfish-cap.cyclic.app/prompt', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(resumeData), // Sending the data as JSON
+                body: JSON.stringify({ prompt, openAIkey }), // Sending the data as JSON
             });
     
             const result = await response.json();
@@ -150,12 +123,21 @@ const InputPopUp = ({ isOpen, onClose }) => {
                     >
                         <FadeIn>
                              <div className="min-w-[80vw] ">
-                                <h4 className="my-4 opacity-50">Personal Information</h4>
-                                <TextField padding="px-4 py-2" rounded="rounded-3xl" title="Personal Information" placeholder="Text your name, contacts, target job, educational background, experience and other essential information here ... " value={personalInfo} onChange={(e) => setPersonalInfo(e.target.value)} />
-
+                             <button onClick={onClose} className="flex top-2 right-2 mb-5 text-[#7F739F] rounded-full w-8 h-8 flex items-center justify-center cursor-pointer
+                                bg-opacity-40 backdrop-blur-3xl border-black border-[1px] border-opacity-5 bg-white 
+                                hover:bg-[#7F739F] hover:bg-opacity-50 hover:text-white
+                                dark:bg-opacity-40 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black 
+                                ">
+                                ⛌
+                            </button>
+                                <h4 className="my-4 opacity-50">Full Name</h4>
+                                <TextField padding="px-4 py-2" rounded="rounded-3xl" title="Full Name" placeholder="Text your name here ... " value={fullName} onChange={(e) => setFullName(e.target.value)} />
+                                <h4 className="my-4 opacity-50">Job Title</h4>
+                                <TextField padding="px-4 py-2" rounded="rounded-3xl" title="Job Title" placeholder="Text your job title here ... " value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} />
+                                <h4 className="my-4 opacity-50">Contact Information</h4>
+                                <TextField padding="px-4 py-2" rounded="rounded-3xl" title="Contact Information" placeholder="Text your email, linkedin, etc. here ... " value={contactInfo} onChange={(e) => setContactInfo(e.target.value)} />
                                 <h4 className="my-4 opacity-50">Professional Experience</h4>
                                 <TextField padding="px-4 py-0" rounded="rounded-3xl" title="Professional Experience" placeholder="Text your professional experience or educational background here ... " value={professionalExperience} onChange={(e) => setProfessionalExperience (e.target.value)} />
-
                                 <h4 className="my-4 opacity-50">Additional Prompts</h4>
                                 <TextField padding="px-4 py-0" rounded="rounded-3xl" title="Additional Prompts" placeholder="Text your additional prompts here, i.e., generate my resume in Spanish or paste the job description of your target job ... " value={additionalPrompts} onChange={(e) => setAdditionalPrompts(e.target.value)} />
                             </div>
