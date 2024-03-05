@@ -8,6 +8,27 @@ const { OpenAI } = require("openai");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+router.post('/prompt', async (req, res, next) => {
+  const { prompt, openAIkey } = req.body; 
+  try {
+    const openai = new OpenAI({ apiKey: openAIkey });
+    const completion = await openai.chat.completions.create({
+      messages: [
+        {
+          "role": "user",
+          "content": prompt
+        }
+      ],
+      model: "gpt-3.5-turbo-16k",
+      temperature: 0.3,
+      top_p: 1
+    });
+    res.status(200).json({content:completion.choices[0]?.message?.content});
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 router.post('/', upload.single('resume'), async (req, res, next) => {
   const { jobTitle, openAIkey } = req.body; 
   if (!req.file) {
