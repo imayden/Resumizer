@@ -7,7 +7,7 @@ import Button from "./Button";
 import pdfToText from 'react-pdftotext'
 
 
-const UploadPopup = ({ isOpen, onClose }) => {
+const UploadPopup = ({ isOpen, onClose, onParseText }) => {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -47,6 +47,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
             pdfToText(selectedFile).then(text => {
                 console.log("File Parsed Successfully: " + text);
                 setParsedText(text);
+                onParseText(text); // Update parsed text in parent component
             }).catch(error => console.error("Failed to extract text from pdf"));
         } else {
             // alert("Invalid file. Please select a PDF or Word document less than 4MB.");
