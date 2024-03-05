@@ -6,8 +6,10 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Result from "./pages/Result";
 import Settings from "./pages/Settings";
+import InputPopUp from './components/InputPopUp';
 
 function App() {
+
   return (
     <Router>
       <div>

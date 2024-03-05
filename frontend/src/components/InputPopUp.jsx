@@ -43,7 +43,7 @@ const InputPopUp = ({ isOpen, onClose }) => {
             PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT AND PUT THE RESULTS IN A CODE BLOCK FORMATTED IN MARKDOWN GRAMMAR!`;
 
         // Replace 'YOUR_OPENAI_KEY_HERE' with your actual OpenAI key
-        const openAIkey = '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';    
+        const openAIkey = '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';   
 
         try {
             // Send data to backend
