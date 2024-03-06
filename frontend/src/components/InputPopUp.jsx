@@ -44,7 +44,6 @@ const InputPopUp = ({ isOpen, onClose }) => {
 
         // Replace 'YOUR_OPENAI_KEY_HERE' with your actual OpenAI key
         const openAIkey = import.meta.env.VITE_OPENAI_KEY;   
-        console.log(openAIkey);
 
         try {
             // Send data to backend
