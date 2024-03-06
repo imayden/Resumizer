@@ -22,7 +22,6 @@ const InputPopUp = ({ isOpen, onClose }) => {
     const [jobTitle, setJobTitle] = useState("");
     const [contactInfo, setContactInfo] = useState("");
     const [professionalExperience, setProfessionalExperience] = useState("");
-    //const [skills, setSkills] = useState("");
     const [additionalPrompts, setAdditionalPrompts] = useState("");
 
     // Submit form
