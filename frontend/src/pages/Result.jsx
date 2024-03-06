@@ -10,10 +10,9 @@ import TextField from "../components/TextField";
 import UploadPopup from "../components/UploadPopup";
 import InputPopUp from "../components/InputPopUp";
 import ReactMarkdown from 'react-markdown';
+import { saveAs } from 'file-saver';
 
-
-
-function Reuslt() {
+const Result = ({ parsedText }) => {
 
   // The upload pop-up display status - Default is not open
   const [showUploadPopup, setShowUploadPopup] = useState(false);
@@ -40,6 +39,37 @@ function Reuslt() {
     setShowInputPopup(!showInputPopup);
   };
 
+  // PDF export function
+  const handleExport = () => {
+    if (!parsedText) {
+      alert("No file available.");
+      return;
+    }
+    // Create new blob containing resume text
+    const blob = new Blob([parsedText], { type: "text/plain" });
+    // Save as file
+    saveAs(blob, "Resume.pdf");
+  };
+
+  // Copy function
+  const handleCopy = () => {
+    // Check if the resume text exists
+    if (!parsedText) {
+      alert("No parsed text available.");
+      return;
+    }
+
+    // Copy text to clipboard
+    navigator.clipboard
+      .writeText(parsedText)
+      .then(() => {
+        alert("Parsed text copied to clipboard successfully.");
+      })
+      .catch((error) => {
+        console.error("Failed to copy parsed text to clipboard:", error);
+        alert("Failed to copy parsed text to clipboard.");
+      });
+  };
 
   return (
     <Container id="result">
@@ -76,14 +106,19 @@ function Reuslt() {
           <div className="grid gap-x-4 gap-y-8 grid-cols-[1fr_1fr] max-mdd:grid-cols-[1fr] grid-rows-[auto]">
             <Button
               href="#"
-              variant="primary">
+              variant="primary"
+              onClick={handleExport}>
 
               Export
+
             </Button>
             <Button
               href="#"
-              variant="secondary">
+              variant="secondary"
+              onClick={handleCopy}>
+
               Copy All
+
             </Button>
           </div>
 
@@ -188,4 +223,4 @@ function Reuslt() {
   );
 }
 
-export default Reuslt;
+export default Result;
