@@ -58,6 +58,7 @@ const InputPopUp = ({ isOpen, onClose }) => {
             const result = await response.json();
             if (response.ok) {
                 console.log("Resume generated successfully:", result);
+                localStorage.setItem('generatedResume', JSON.stringify(result)); // Store the result in local storage
                 window.open('/result', '_blank'); // Replace here with real result url
             } else {
                 console.error("Failed to generate resume:", result);

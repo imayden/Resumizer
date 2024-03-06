@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "../components/Container";
 import { FadeIn } from "../components/FadeIn";
 import JobSpy from '../components/JobSpy';
@@ -9,12 +9,23 @@ import Socials from "../components/Socials";
 import TextField from "../components/TextField";
 import UploadPopup from "../components/UploadPopup";
 import InputPopUp from "../components/InputPopUp";
+import ReactMarkdown from 'react-markdown';
+
 
 
 function Reuslt() {
 
   // The upload pop-up display status - Default is not open
   const [showUploadPopup, setShowUploadPopup] = useState(false);
+  const [generatedResume, setGeneratedResume] = useState(null);
+
+  useEffect(() => {
+    // Retrieve the generated resume from local storage
+    const storedResume = localStorage.getItem('generatedResume');
+    if (storedResume) {
+      setGeneratedResume(JSON.parse(storedResume));
+    }
+  }, []);
 
   // Toggle the upload pop-up
   const toggleUploadPopup = () => {
@@ -52,7 +63,13 @@ function Reuslt() {
             bg-opacity-20 backdrop-blur-3xl border-white border-[1px] border-opacity-5 bg-white 
             dark:bg-opacity-20 dark:backdrop-blur-3xl dark:border-black dark:border-[1px] dark:border-opacity-5 dark:bg-black text-[#7F739F]" >
 
-            Result
+            {generatedResume ? (
+              <ReactMarkdown>
+                {generatedResume.content} 
+              </ReactMarkdown> // Displaying the resume
+            ) : (
+              <div>No result yet</div> // Placeholder when there is no resume
+            )}
 
           </div>
 
