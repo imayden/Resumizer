@@ -7,7 +7,7 @@ import Button from "./Button";
 import pdfToText from 'react-pdftotext'
 
 
-const UploadPopup = ({ isOpen, onClose, onParseText }) => {
+const UploadPopup = ({ isOpen, onClose }) => {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -47,7 +47,6 @@ const UploadPopup = ({ isOpen, onClose, onParseText }) => {
             pdfToText(selectedFile).then(text => {
                 console.log("File Parsed Successfully: " + text);
                 setParsedText(text);
-                onParseText(text); // Update parsed text in parent component
             }).catch(error => console.error("Failed to extract text from pdf"));
         } else {
             // alert("Invalid file. Please select a PDF or Word document less than 4MB.");
@@ -83,10 +82,8 @@ const UploadPopup = ({ isOpen, onClose, onParseText }) => {
         formData.append("resume", file);
         formData.append("jobTitle", jobTitle);
 
-        const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
-        // const openAIkey = "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"
-        console.log("openAIkey: " + openAIkey);
-        formData.append("openAIkey", openAIkey); 
+        const openAIKey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
+        formData.append("openApiKey", openAIKey); 
 
         /* 
             **************************************************************************************
@@ -96,7 +93,6 @@ const UploadPopup = ({ isOpen, onClose, onParseText }) => {
         try {
             // Send request to server to detect and parse the file content
             const response = await fetch('https://tiny-teal-swordfish-cap.cyclic.app', {
-            // const response = await fetch('http://localhost:3000', {
                 method: 'POST',
                 body: formData,
             });
