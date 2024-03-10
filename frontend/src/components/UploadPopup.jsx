@@ -65,7 +65,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
     const handleJobTitleBlur = () => {
         const conbinedPrompts = `My Target Job Is: ${jobTitle}. 
             Please Refine My Resume Refer To My Target Job In A Professional Way: ${parsedText}
-            PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT AND PUT THE RESULTS IN A CODE BLOCK FORMATTED IN MARKDOWN GRAMMAR!
+            PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT FORMATTED IN MARKDOWN GRAMMAR!
             `;
         setConbinedPrompts(conbinedPrompts);
         console.log(conbinedPrompts);
@@ -83,8 +83,8 @@ const UploadPopup = ({ isOpen, onClose }) => {
         formData.append("resume", file);
         formData.append("jobTitle", jobTitle);
 
-        const openAIKey = import.meta.env.VITE_OPENAI_KEY || process.env.OPENAI_API_KEY;
-        formData.append("openApiKey", openAIKey); 
+        const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
+        formData.append("openAIkey", openAIkey); 
 
         /* 
             **************************************************************************************
@@ -94,6 +94,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
         try {
             // Send request to server to detect and parse the file content
             const response = await fetch('https://tiny-teal-swordfish-cap.cyclic.app', {
+            // const response = await fetch('http://localhost:3000', {
                 method: 'POST',
                 body: formData,
             });
@@ -110,8 +111,8 @@ const UploadPopup = ({ isOpen, onClose }) => {
                 console.log("Resume generated successfully:");
                 console.log("============================================================");
                 console.log(result);
-                console.log("============================================================");
                 localStorage.setItem('generatedResume', JSON.stringify(result)); // Store the result in local storage
+                console.log("============================================================");
                 window.open('/result', '_blank'); // Replace here with real result url
             } else {
                 // Handle Error
