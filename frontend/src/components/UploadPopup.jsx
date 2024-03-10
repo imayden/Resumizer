@@ -110,6 +110,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
                 console.log("Resume generated successfully:");
                 console.log("============================================================");
                 console.log(result);
+                localStorage.setItem('generatedResume', JSON.stringify(result)); // Store the result in local storage
                 console.log("============================================================");
                 window.open('/result', '_blank'); // Replace here with real result url
             } else {
