@@ -23,6 +23,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
     const [parsedText, setParsedText] = useState(""); // Save parsed pdf text
     const fileInputRef = useRef(null); // Create a ref to index the input file
     const [conbinedPrompts, setConbinedPrompts] = useState("");
+    const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
 
 
     const handleFileChange = (e) => {
@@ -82,7 +83,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
         formData.append("resume", file);
         formData.append("jobTitle", jobTitle);
 
-        const openAIKey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
+        const openAIKey = import.meta.env.VITE_OPENAI_KEY || process.env.OPENAI_API_KEY;
         formData.append("openApiKey", openAIKey); 
 
         /* 
@@ -110,6 +111,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
                 console.log("============================================================");
                 console.log(result);
                 console.log("============================================================");
+                localStorage.setItem('generatedResume', JSON.stringify(result)); // Store the result in local storage
                 window.open('/result', '_blank'); // Replace here with real result url
             } else {
                 // Handle Error
