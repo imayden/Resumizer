@@ -64,7 +64,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
     const handleJobTitleBlur = () => {
         const conbinedPrompts = `My Target Job Is: ${jobTitle}. 
             Please Refine My Resume Refer To My Target Job In A Professional Way: ${parsedText}
-            PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT AND PUT THE RESULTS IN A CODE BLOCK FORMATTED IN MARKDOWN GRAMMAR!
+            PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT FORMATTED IN MARKDOWN GRAMMAR!
             `;
         setConbinedPrompts(conbinedPrompts);
         console.log(conbinedPrompts);

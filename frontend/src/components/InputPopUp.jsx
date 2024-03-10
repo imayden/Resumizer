@@ -39,10 +39,11 @@ const InputPopUp = ({ isOpen, onClose }) => {
             My name is ${fullName} and my contact information is ${contactInfo}. 
             ${jobTitle} is my target job. I have some professional experiences in ${professionalExperience}.
             Also include this ${additionalPrompts} as additional information. 
-            PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT AND PUT THE RESULTS IN A CODE BLOCK FORMATTED IN MARKDOWN GRAMMAR!`;
+            PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT FORMATTED IN MARKDOWN GRAMMAR!`;
 
         // Replace 'YOUR_OPENAI_KEY_HERE' with your actual OpenAI key
-        const openAIkey = import.meta.env.VITE_OPENAI_KEY;   
+        // const openAIkey = import.meta.env.VITE_OPENAI_KEY;   
+        const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
 
         try {
             // Send data to backend
