@@ -11,8 +11,9 @@ import UploadPopup from "../components/UploadPopup";
 import InputPopUp from "../components/InputPopUp";
 import ReactMarkdown from 'react-markdown';
 import { saveAs } from 'file-saver';
+import jsPDF from 'jspdf';
 
-const Result = ({ parsedText }) => {
+const Result = () => {
 
   // The upload pop-up display status - Default is not open
   const [showUploadPopup, setShowUploadPopup] = useState(false);
@@ -41,33 +42,41 @@ const Result = ({ parsedText }) => {
 
   // PDF export function
   const handleExport = () => {
-    if (!parsedText) {
-      alert("No file available.");
+    if (!generatedResume || !generatedResume.content) {
+      alert("No resume available.");
       return;
     }
-    // Create new blob containing resume text
-    const blob = new Blob([parsedText], { type: "text/plain" });
-    // Save as file
-    saveAs(blob, "Resume.pdf");
+  
+    // Create a new instance of jsPDF
+    const pdf = new jsPDF();
+  
+    // Add the resume content to the PDF
+    pdf.text(generatedResume.content, 10, 10);
+  
+    // Save the PDF
+    pdf.save('Resume.pdf');
   };
 
   // Copy function
   const handleCopy = () => {
     // Check if the resume text exists
-    if (!parsedText) {
-      alert("No parsed text available.");
+    if (!generatedResume || !generatedResume.content) {
+      alert("No resume available.");
       return;
     }
 
+    // Extract resume content and get rid of " ```markdown" from beginning
+    const contentToCopy = generatedResume.content.replace(/^```markdown\s*/, '');
+
     // Copy text to clipboard
     navigator.clipboard
-      .writeText(parsedText)
+      .writeText(contentToCopy)
       .then(() => {
-        alert("Parsed text copied to clipboard successfully.");
+        alert("Resume copied to clipboard successfully.");
       })
       .catch((error) => {
-        console.error("Failed to copy parsed text to clipboard:", error);
-        alert("Failed to copy parsed text to clipboard.");
+        console.error("Failed to copy resume to clipboard:", error);
+        alert("Failed to copy resume to clipboard.");
       });
   };
 
