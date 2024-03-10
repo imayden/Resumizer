@@ -47,6 +47,7 @@ const InputPopUp = ({ isOpen, onClose }) => {
         try {
             // Send data to backend
             const response = await fetch('https://tiny-teal-swordfish-cap.cyclic.app/prompt', {
+            // const response = await fetch('http://localhost:3000/prompt', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
