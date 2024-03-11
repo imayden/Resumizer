@@ -23,6 +23,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
     const [parsedText, setParsedText] = useState(""); // Save parsed pdf text
     const fileInputRef = useRef(null); // Create a ref to index the input file
     const [conbinedPrompts, setConbinedPrompts] = useState("");
+    const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
 
 
     const handleFileChange = (e) => {

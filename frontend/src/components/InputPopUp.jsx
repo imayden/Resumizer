@@ -23,7 +23,6 @@ const InputPopUp = ({ isOpen, onClose }) => {
     const [contactInfo, setContactInfo] = useState("");
     const [professionalExperience, setProfessionalExperience] = useState("");
     const [additionalPrompts, setAdditionalPrompts] = useState("");
-
     // Submit form
     const handleSubmit = async () => {
         console.log({ fullName, jobTitle, contactInfo, professionalExperience,  additionalPrompts});
@@ -43,7 +42,7 @@ const InputPopUp = ({ isOpen, onClose }) => {
 
         // Replace 'YOUR_OPENAI_KEY_HERE' with your actual OpenAI key
         // const openAIkey = import.meta.env.VITE_OPENAI_KEY;   
-        const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
+        const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;  
 
         try {
             // Send data to backend
