@@ -5,9 +5,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import InputField from "./InputField";
 import Button from "./Button";
 import pdfToText from 'react-pdftotext'
+import Setting from "../pages/Settings";
 
 
-const UploadPopup = ({ isOpen, onClose }) => {
+const UploadPopup = ({ isOpen, onClose, localAPIkey }) => {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -23,7 +24,8 @@ const UploadPopup = ({ isOpen, onClose }) => {
     const [parsedText, setParsedText] = useState(""); // Save parsed pdf text
     const fileInputRef = useRef(null); // Create a ref to index the input file
     const [conbinedPrompts, setConbinedPrompts] = useState("");
-    const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
+    const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;
+    
 
 
     const handleFileChange = (e) => {
@@ -77,14 +79,21 @@ const UploadPopup = ({ isOpen, onClose }) => {
             return;
         }
 
+        // if (!localAPIkey) {
+        //     alert("API key is missing.");
+        //     return;
+        // }
+
         // Create a FormData object to send uploaded file and jobTitle
         const formData = new FormData();
         // formData.append("file", file);
         formData.append("resume", file);
         formData.append("jobTitle", jobTitle);
 
-        const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;
+        const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;
+        // const openAIkey = "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";
         formData.append("openAIkey", openAIkey); 
+        // formData.append("openAIkey", localAPIkey); // Use localAPIkey here
 
         /* 
             **************************************************************************************
@@ -113,6 +122,7 @@ const UploadPopup = ({ isOpen, onClose }) => {
                 console.log(result);
                 localStorage.setItem('generatedResume', JSON.stringify(result)); // Store the result in local storage
                 console.log("============================================================");
+                console.log(localAPIkey);
                 window.open('/result', '_blank'); // Replace here with real result url
             } else {
                 // Handle Error
@@ -255,6 +265,10 @@ const UploadPopup = ({ isOpen, onClose }) => {
                             >
                                 Confirm
                             </Button>
+
+                            <p>
+                                {localAPIkey}
+                            </p>
                         </FadeIn>
 
                     </motion.div>

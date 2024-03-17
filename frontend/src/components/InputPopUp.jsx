@@ -5,7 +5,7 @@ import Button from "./Button";
 import { FadeIn } from "./FadeIn";
 import Tile from "./Tile";
 
-const InputPopUp = ({ isOpen, onClose }) => {
+const InputPopUp = ({ isOpen, onClose, localAPIkey }) => {
 
     useEffect(() => {
         if (isOpen) {
@@ -42,7 +42,7 @@ const InputPopUp = ({ isOpen, onClose }) => {
 
         // Replace 'YOUR_OPENAI_KEY_HERE' with your actual OpenAI key
         // const openAIkey = import.meta.env.VITE_OPENAI_KEY;   
-        const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY;  
+        const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;  
 
         try {
             // Send data to backend

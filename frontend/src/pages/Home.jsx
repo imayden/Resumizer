@@ -116,7 +116,7 @@ function Home() {
 
 
       {/* Upload File Pop-up */}
-      <UploadPopup isOpen={showUploadPopup} onClose={toggleUploadPopup} />
+      <UploadPopup isOpen={showUploadPopup} onClose={toggleUploadPopup}  />
 
       {/* Input Manually Pop-up */}
       <InputPopUp isOpen={showInputPopup} onClose={toggleInputPopup} />
