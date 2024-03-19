@@ -43,7 +43,6 @@ function JobSpy() {
         try {
             setJobResults(initialState);
             setLoading(true)
-            // const response = await axios.post("https://resumizer-7n3e.onrender.com/jobs", { // https://resumizer-7n3e.onrender.com/jobs
             const response = await axios.post("https://resumizer-7n3e.onrender.com/jobs", { 
                 job_title: jobData.job_title,
                 // country: jobData.country,
