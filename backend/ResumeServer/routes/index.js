@@ -7,6 +7,41 @@ const { OpenAI } = require("openai");
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
+const osu = require('node-os-utils');
+const sizeof = require('object-sizeof');
+const os = require('os');
+
+// Middleware for monitoring resource usage
+router.use(async (req, res, next) => {
+  const request_size = sizeof(req.body);
+
+  const cpu_before = await osu.cpu.usage();
+  const memory_before = process.memoryUsage();
+  const start_time = Date.now();
+
+  // Wrap the next function to capture the response
+  const originalEnd = res.end;
+  res.end = async function (chunk, encoding) {
+    res.end = originalEnd;
+
+    const response_size = chunk ? chunk.length : 0;
+    const cpu_after = await osu.cpu.usage();
+    const memory_after = process.memoryUsage();
+    const duration = (Date.now() - start_time) / 1000; // Convert to seconds
+    const bandwidth_usage = request_size + response_size;
+
+    // Log or process the resource usage data
+    console.log(`API call: ${req.url}`);
+    console.log(`Duration: ${duration.toFixed(1)}s`);
+    console.log(`CPU usage before: ${cpu_before.toFixed(2)}%, after: ${cpu_after.toFixed(2)}%`);
+    console.log(`Memory usage before: ${(memory_before.heapUsed / 1024 / 1024).toFixed(2)} MB, after: ${(memory_after.heapUsed / 1024 / 1024).toFixed(2)} MB`);
+    console.log(`Total bandwidth used (bytes): ${bandwidth_usage}`);
+
+    res.end(chunk, encoding);
+  };
+
+  next();
+});
 
 router.post('/prompt', async (req, res, next) => {
   const { prompt, openAIkey } = req.body; 

@@ -4,27 +4,38 @@ from fastapi import FastAPI, Request
 import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
 import psutil
+import time
 
 app = FastAPI()
-
-@app.get("/system-usage")
-def get_system_usage():
-    cpu_usage = psutil.cpu_percent()
-    memory_usage = psutil.virtual_memory().percent
-    return {"cpu_usage": cpu_usage, "memory_usage": memory_usage}
+# Get the current process
+current_process = psutil.Process()
 
 @app.middleware("http")
 async def monitor_resource_usage(request: Request, call_next):
     request_body = await request.body()
     request_size = len(request_body)
 
+    cpu_before = psutil.cpu_percent(interval=None)
+    memory_before = current_process.memory_info().rss / 1024 / 1024
+    start_time = time.time()
+
     async def wrapped_call_next(request):
         request._body = request_body
         return await call_next(request)
-
     response = await wrapped_call_next(request)
+
+    # Measure resources after handling the request
+    cpu_after = psutil.cpu_percent(interval=None)
+    memory_after = current_process.memory_info().rss / 1024 / 1024
+    duration = time.time() - start_time
     response_size = int(response.headers.get("Content-Length", 0))
     bandwidth_usage = request_size + response_size
+
+    # Log or process the resource usage data
+    print(f"API call: {request.url.path}")
+    print(f"Duration: {duration:.1f}s")
+    print(f"CPU usage before: {cpu_before:.2f}%, after: {cpu_after:.2f}%")
+    print(f"Memory usage before: {memory_before:.2f} MB, after: {memory_after:.2f} MB")
     print(f"Total bandwidth used (bytes): {bandwidth_usage}")
     return response
 
