@@ -92,7 +92,16 @@ const Result = () => {
       according to the following prompt: ${additionalPrompts} 
       PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT FORMATTED IN MARKDOWN GRAMMAR!`;
 
-    const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;  
+    // const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;  
+    const openAIkey = localStorage.getItem('apiKey');
+
+    if (!openAIkey || openAIkey.length === 0) {
+        alert("OpenAI API key is missing.");
+        return;
+    }
+
+    alert("Nice! Your well refined resume is generating ... Please be patient and wait for seconds!");
+
 
     try {
       const response = await fetch('https://tiny-teal-swordfish-cap.cyclic.app/prompt', {
@@ -114,6 +123,7 @@ const Result = () => {
       }
     } catch (error) {
       console.error("Error regenerating resume:", error);
+      alert("Oops...we lost connection with server! Please check your network or if your OpenAI API key is missing or invalid.");
     }
   };
 
