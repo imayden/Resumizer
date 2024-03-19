@@ -85,28 +85,6 @@ Result: List of job information about company, title, date_posted, job_url, loca
 ```
 ![Screenshot 2024-02-13 at 6 56 56 PM](https://github.com/imayden/Resumizer/assets/34488386/ed7509ec-c14c-4d0b-86c8-d7fa12e37adb)
 
-_**Monitors CPU, memory, and bandwidth usage**_
-
-* CPU, memory usage
-```yml
-Get - https://resumizer-7n3e.onrender.com/system-usage
-Result: {
-    "cpu_usage": 55.4, 
-    "memory_usage": 43.4
-}
-"cpu_usage: 55.4" - This represents 55.4% of the CPU's capacity that is currently being used by the system.
-"memory_usage: 39.8" - This indicates 39.8% of the total physical RAM (Random Access Memory) that is currently being used by the system.
-The information of current Render free hosting: 0.1 CPU(10% of a single CPU core's computational capacity), 512 MB (Ram)
-
-```
-* Bandwidth usage
-```yml
-The bandwidth usage is the sum of the request body size and the response body size for each API caller.
-This indicates the total amount of data transferred over the network for that specific API request and response.
-
-The bandwidth usage of API (POST - https://resumizer-7n3e.onrender.com/jobs) is 1491 bytes.
-```
-![Screenshot 2024-03-19 at 2 06 48 PM](https://github.com/imayden/Resumizer/assets/34488386/bbfc2a7a-b1eb-4fac-a9bc-e1a12dc81e2e)
 
 ### Resume Server
 _**Setup**_
@@ -139,7 +117,29 @@ Result: The new content of the resume.
 ```
 ![Screenshot 2024-03-05 at 5 38 31 AM](https://github.com/imayden/Resumizer/assets/34488386/37df4529-0ac2-49b9-837a-d76aa8e69def)
 
+## Monitors CPU, memory, and bandwidth usage
+_**Job Server**_
 
+The current Render free hosting: 0.1 CPU(10% of a single CPU core's computational capacity), 512 MB (Ram)
+* The average duration of JobSpy Api is 6s
+* The CPU usage metric indicates the system-wide CPU usage, which includes the usage of all processes running on the system.
+  
+  During the API runtime, the CPU usage is 58%. The metric is 26% after finishing
+* The Memory usage metric indicates the physical memory used by the JobServer process. It includes the memory used by the process's code, data, and shared libraries that are currently in physical memory (RAM). The memory usage of the FastAPI process increases as new memory is allocated to accommodate these operations
+  
+  Before the API runtime, the Memory usage is 125MB. The metric is 129MB after finishing
+* The bandwidth usage is the sum of the request body size and the response body size for each API caller.
+
+![Screenshot 2024-03-19 at 4 42 50 PM](https://github.com/imayden/Resumizer/assets/34488386/a34fe3b9-9a05-4e24-b621-0957afaed42c)
+
+_**Resume Server**_
+The current free hosting: 1 GB of runtime memory, 1024 MB (Ram)
+
+The CPU, memory, and bandwidth usage of resume generation by PDF Api: 
+![Screenshot 2024-03-19 at 5 04 41 PM](https://github.com/imayden/Resumizer/assets/34488386/99c38fe0-b6d1-45b7-bfc7-d22283fab082)
+
+The CPU, memory, and bandwidth usage of resume generation by prompt Api: 
+![Screenshot 2024-03-19 at 5 08 53 PM](https://github.com/imayden/Resumizer/assets/34488386/dae02467-066e-4135-bb96-8fbf2a4e71f8)
 
 ## Database
 * TBD
