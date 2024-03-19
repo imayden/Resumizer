@@ -1,10 +1,32 @@
 from pydantic import BaseModel
 from jobspy import scrape_jobs
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
+import psutil
 
 app = FastAPI()
+
+@app.get("/system-usage")
+def get_system_usage():
+    cpu_usage = psutil.cpu_percent()
+    memory_usage = psutil.virtual_memory().percent
+    return {"cpu_usage": cpu_usage, "memory_usage": memory_usage}
+
+@app.middleware("http")
+async def monitor_resource_usage(request: Request, call_next):
+    request_body = await request.body()
+    request_size = len(request_body)
+
+    async def wrapped_call_next(request):
+        request._body = request_body
+        return await call_next(request)
+
+    response = await wrapped_call_next(request)
+    response_size = int(response.headers.get("Content-Length", 0))
+    bandwidth_usage = request_size + response_size
+    print(f"Total bandwidth used (bytes): {bandwidth_usage}")
+    return response
 
 # Add CORS middleware to allow all origins
 app.add_middleware(
