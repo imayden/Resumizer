@@ -18,6 +18,7 @@ const Result = () => {
   // The upload pop-up display status - Default is not open
   const [showUploadPopup, setShowUploadPopup] = useState(false);
   const [generatedResume, setGeneratedResume] = useState(null);
+  const [additionalPrompts, setAdditionalPrompts] = useState('')
 
   useEffect(() => {
     // Retrieve the generated resume from local storage
@@ -80,6 +81,41 @@ const Result = () => {
       });
   };
 
+  const handleRegenerate = async () => {
+
+    if (!additionalPrompts.trim()) {
+      alert('Please write a prompt.');
+      return;
+    }
+
+    const prompt = `Reformat the following resume: ${generatedResume.content} 
+      according to the following prompt: ${additionalPrompts} 
+      PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT FORMATTED IN MARKDOWN GRAMMAR!`;
+
+    const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;  
+
+    try {
+      const response = await fetch('https://tiny-teal-swordfish-cap.cyclic.app/prompt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt, openAIkey }),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        console.log("Resume regenerated successfully:", result);
+        setGeneratedResume(result);
+        localStorage.setItem('generatedResume', JSON.stringify(result));
+      } else {
+        console.error("Failed to regenerate resume:", result);
+      }
+    } catch (error) {
+      console.error("Error regenerating resume:", error);
+    }
+  };
+
   return (
     <Container id="result">
 
@@ -140,26 +176,29 @@ const Result = () => {
         <Tile className="flex-col justify-between items-stretch gap-x-8 gap-y-8 text-center">
           <h3 className="max-md:text-[40px] max-md:leading-[48px] max-md:tracking-[-0.01em]">
             <span className="text-[#7F739F]">
-              Text Here To Add Additional
+              Add Additional
               {" "}
             </span>
 
             Prompts
           </h3>
 
-          {/* InputFiled for additional prompts */}
+          {/* InputField for additional prompts */}
           <div>
             <TextField
               className="w-full"
               rounded="rounded-3xl"
               // height="min-h-[200px]"
-              placeholder="Add additional prompts here. i.e, my target job is UX desginer ..."
+              placeholder="Add additional prompts here, i.e, my target job is UX designer ..."
+              value={additionalPrompts}
+              onChange={(e) => setAdditionalPrompts(e.target.value)}
             />
           </div>
 
           <Button
             href="#"
-            variant="primary">
+            variant="primary"
+            onClick={handleRegenerate}>
             Regenerate
           </Button>
         </Tile>
