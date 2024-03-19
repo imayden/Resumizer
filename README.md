@@ -52,7 +52,7 @@ _**Setup**_
 
 _**Apis**_
 ```yml
-POST - https://job-server-0wyb.onrender.com/jobs
+POST - https://resumizer-7n3e.onrender.com/jobs
 
 Body(JSON): 
 - "job_title": Title of the job (Software engineer)
@@ -84,6 +84,29 @@ Use the exact name, * indicates support for Glassdoor:
 Result: List of job information about company, title, date_posted, job_url, location, site
 ```
 ![Screenshot 2024-02-13 at 6 56 56 PM](https://github.com/imayden/Resumizer/assets/34488386/ed7509ec-c14c-4d0b-86c8-d7fa12e37adb)
+
+_**Monitors CPU, memory, and bandwidth usage**_
+
+* CPU, memory usage
+```yml
+Get - https://resumizer-7n3e.onrender.com/system-usage
+Result: {
+    "cpu_usage": 55.4, 
+    "memory_usage": 43.4
+}
+"cpu_usage: 55.4" - This represents 55.4% of the CPU's capacity that is currently being used by the system.
+"memory_usage: 39.8" - This indicates 39.8% of the total physical RAM (Random Access Memory) that is currently being used by the system.
+The information of current Render free hosting: 0.1 CPU(10% of a single CPU core's computational capacity), 512 MB (Ram)
+
+```
+* Bandwidth usage
+```yml
+The bandwidth usage is the sum of the request body size and the response body size for each API caller.
+This indicates the total amount of data transferred over the network for that specific API request and response.
+
+The bandwidth usage of API (POST - https://resumizer-7n3e.onrender.com/jobs) is 1491 bytes.
+```
+![Screenshot 2024-03-19 at 2 06 48 PM](https://github.com/imayden/Resumizer/assets/34488386/bbfc2a7a-b1eb-4fac-a9bc-e1a12dc81e2e)
 
 ### Resume Server
 _**Setup**_
