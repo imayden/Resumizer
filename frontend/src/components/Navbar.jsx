@@ -15,10 +15,10 @@ const navlinkes = [
     name: "settings.",
     link: "/settings",
   },
-  {
-    name: "result.",
-    link: "/result",
-  },
+  // {
+  //   name: "result.",
+  //   link: "/result",
+  // },
 
   // {
   //   name: "contact.",

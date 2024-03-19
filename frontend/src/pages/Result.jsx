@@ -41,7 +41,6 @@ const Result = () => {
     setShowInputPopup(!showInputPopup);
   };
 
-  // PDF export function
   const handleExport = () => {
     if (!generatedResume || !generatedResume.content) {
       alert("No resume available.");
@@ -51,12 +50,33 @@ const Result = () => {
     // Create a new instance of jsPDF
     const pdf = new jsPDF();
   
-    // Add the resume content to the PDF
-    pdf.text(generatedResume.content, 10, 10);
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+  
+    const margin = 10;
+    const initialY = 10;
+    let y = initialY;
+  
+    const maxWidth = pageWidth - margin * 2;
+    const lineHeight = 10; 
+
+    const lines = pdf.splitTextToSize(generatedResume.content, maxWidth);
+
+    lines.forEach(line => {
+      if (y > pageHeight - margin) { 
+        pdf.addPage();
+        y = initialY; 
+      }
+  
+      pdf.text(line, margin, y);
+      y += lineHeight; 
+    });
   
     // Save the PDF
     pdf.save('Resume.pdf');
   };
+  
+
 
   // Copy function
   const handleCopy = () => {
