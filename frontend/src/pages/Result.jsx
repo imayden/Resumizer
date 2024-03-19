@@ -123,7 +123,7 @@ const Result = () => {
       }
     } catch (error) {
       console.error("Error regenerating resume:", error);
-      alert("Oops...we lost connection with server! Please check your network or if your OpenAI API key is missing or invalid.");
+      alert("Oops...we lost connection with server! Please clear your browser cookies, enter your OpenAI API key, refresh and try again.");
     }
   };
 
