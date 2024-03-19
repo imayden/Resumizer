@@ -10,6 +10,7 @@ const InputPopUp = ({ isOpen, onClose, localAPIkey }) => {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
+            let localAPIkey = localStorage.getItem('apiKey');
         } else {
             document.body.style.overflow = '';
         }

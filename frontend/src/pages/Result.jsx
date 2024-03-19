@@ -108,6 +108,7 @@ const Result = () => {
         console.log("Resume regenerated successfully:", result);
         setGeneratedResume(result);
         localStorage.setItem('generatedResume', JSON.stringify(result));
+        window.open('/result', '_blank');
       } else {
         console.error("Failed to regenerate resume:", result);
       }

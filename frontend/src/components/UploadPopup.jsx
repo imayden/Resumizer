@@ -9,9 +9,19 @@ import Setting from "../pages/Settings";
 
 
 const UploadPopup = ({ isOpen, onClose, localAPIkey }) => {
+    // useEffect(() => {
+    //     if (isOpen) {
+    //         document.body.style.overflow = 'hidden';
+    //     } else {
+    //         document.body.style.overflow = '';
+    //     }
+    // }, [isOpen]);
+
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
+            let localAPIkey = localStorage.getItem('apiKey');
+            console.log(localAPIkey);
         } else {
             document.body.style.overflow = '';
         }
@@ -24,7 +34,7 @@ const UploadPopup = ({ isOpen, onClose, localAPIkey }) => {
     const [parsedText, setParsedText] = useState(""); // Save parsed pdf text
     const fileInputRef = useRef(null); // Create a ref to index the input file
     const [conbinedPrompts, setConbinedPrompts] = useState("");
-    const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;
+    // const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;
     
 
 
@@ -91,7 +101,7 @@ const UploadPopup = ({ isOpen, onClose, localAPIkey }) => {
         formData.append("jobTitle", jobTitle);
 
         const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;
-        // const openAIkey = "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";
+        // const openAIkey = localAPIkey;
         formData.append("openAIkey", openAIkey); 
         // formData.append("openAIkey", localAPIkey); // Use localAPIkey here
 
