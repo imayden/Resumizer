@@ -79,9 +79,11 @@ const UploadPopup = ({ isOpen, onClose, localAPIkey }) => {
         // const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;
 
         if (!openAIkey || openAIkey.length === 0) {
-            alert("API key is missing.");
+            alert("OpenAI API key is missing.");
             return;
         }
+
+        alert("Nice! Your well refined resume is generating ... Please be patient and wait for seconds!");
 
         // Create a FormData object to send uploaded file and jobTitle
         const formData = new FormData();

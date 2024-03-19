@@ -41,9 +41,15 @@ const InputPopUp = ({ isOpen, onClose, localAPIkey }) => {
             Also include this ${additionalPrompts} as additional information. 
             PLEASE OUTPUT THE GENERATED REFINED RESUME ONLY WITHOUT ANY OTHER TEXT FORMATTED IN MARKDOWN GRAMMAR!`;
 
-        // Replace 'YOUR_OPENAI_KEY_HERE' with your actual OpenAI key
-        // const openAIkey = import.meta.env.VITE_OPENAI_KEY;   
-        const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;  
+        // const openAIkey = import.meta.env.VITE_OPENAI_API_KEY || process.env.OPENAI_API_KEY || localAPIkey;  
+        const openAIkey = localStorage.getItem('apiKey');
+
+        if (!openAIkey || openAIkey.length === 0) {
+            alert("OpenAI API key is missing.");
+            return;
+        }
+
+        alert("Nice! Your well refined resume is generating ... Please be patient and wait for seconds!");
 
         try {
             // Send data to backend
@@ -66,6 +72,7 @@ const InputPopUp = ({ isOpen, onClose, localAPIkey }) => {
             }
         } catch (error) {
             console.error("Error submitting resume data:", error);
+            alert("Oops...we lost connection with server! Please check your network or if your OpenAI API key is missing or invalid.");
         }
     };
 
