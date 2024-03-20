@@ -37,7 +37,7 @@ function Home() {
   // Images with links
   const images = [
     { src: image1, alt: "image1", link: "/settings" },
-    { src: image2, alt: "image2", link: "/result" },
+    { src: image2, alt: "image2", link: "/settings" },
     { src: image3, alt: "image3", link: "/settings" },
   ];
 
